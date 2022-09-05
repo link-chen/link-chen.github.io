@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>UnityShader Practice | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="UnityShader Practice1.Blinn-Phone 1  2.纹理映射（仅将Texture贴到Actor上） 1  3.凹凸映射-TangentSpace 1  4.凹凸映射-WorldSpace 5.透明度测试 6.透明度混合 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UnityShader Practice">
+<meta property="og:url" content="http://example.com/2022/09/05/UnityShader-Practice/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="UnityShader Practice1.Blinn-Phone 1  2.纹理映射（仅将Texture贴到Actor上） 1  3.凹凸映射-TangentSpace 1  4.凹凸映射-WorldSpace 5.透明度测试 6.透明度混合 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-05T13:21:22.000Z">
+<meta property="article:modified_time" content="2022-09-05T13:21:46.420Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-UnityShader-Practice" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/05/UnityShader-Practice/" class="article-date">
+  <time class="dt-published" datetime="2022-09-05T13:21:22.000Z" itemprop="datePublished">2022-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      UnityShader Practice
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="UnityShader-Practice"><a href="#UnityShader-Practice" class="headerlink" title="UnityShader Practice"></a>UnityShader Practice</h1><p>1.Blinn-Phone</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2.纹理映射（仅将Texture贴到Actor上）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3.凹凸映射-TangentSpace</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>4.凹凸映射-WorldSpace</p>
+<p>5.透明度测试</p>
+<p>6.透明度混合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;Custom/AlphaTest&quot;</span><br><span class="line">&#123;</span><br><span class="line">    Properties</span><br><span class="line">    &#123;</span><br><span class="line">        _Color (&quot;Color&quot;, Color) = (1,1,1,1)</span><br><span class="line">        _MainTex (&quot;Albedo (RGB)&quot;, 2D) = &quot;white&quot; &#123;&#125;</span><br><span class="line">        _AlphaScale(&quot;AlphaScale&quot;,Range(0,1))=1</span><br><span class="line">    &#125;</span><br><span class="line">    SubShader</span><br><span class="line">    &#123;</span><br><span class="line">            Tags&#123;&quot;Queue&quot;=&quot;AlphaTest&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; &quot;RenderType&quot;=&quot;TransparentCutout&quot;&#125;</span><br><span class="line">            Pass&#123;</span><br><span class="line">                CGPROGRAM</span><br><span class="line"></span><br><span class="line">                #pragma vertex vert</span><br><span class="line">                #pragma fragment frag</span><br><span class="line"></span><br><span class="line">                #include&quot;Lighting.cginc&quot;</span><br><span class="line"></span><br><span class="line">                float4 _Color;</span><br><span class="line">                float4 _MainTex_ST;</span><br><span class="line">                sampler2D _MainTex;</span><br><span class="line">                float _AlphaScale;</span><br><span class="line"></span><br><span class="line">                struct a2v&#123;</span><br><span class="line">                    float4 vertex:POSITION;</span><br><span class="line">                    float3 normal:NORMAL;</span><br><span class="line">                    float4 texcoord:TEXCOORD0;</span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                struct v2f&#123;</span><br><span class="line">                    float4 pos:SV_POSITION;</span><br><span class="line">                    float3 worldNormal:TEXCOORD0;</span><br><span class="line">                    float4 worldPos:TEXCOORD1;</span><br><span class="line">                    float4 uv:TEXCOORD2;</span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                v2f vert(a2v v)&#123;</span><br><span class="line">                    v2f o;</span><br><span class="line">                    o.pos=UnityObjectToClipPos(v.vertex);</span><br><span class="line">                    o.worldNormal=UnityObjectToWorldNormal(v.normal);</span><br><span class="line">                    o.worldPos=mul(unity_ObjectToWorld,v.vertex);</span><br><span class="line">                    o.uv.xy=v.texcoord.xy*_MainTex_ST.xy+_MainTex_ST.zw;</span><br><span class="line">                    return o;</span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                float4 frag(v2f i):SV_Target&#123;</span><br><span class="line">                    float4 worldPos=i.worldPos;</span><br><span class="line">                    float3 worldNormal=normalize(i.worldNormal);</span><br><span class="line">                    float3 viewDir=UnityWorldSpaceViewDir(worldPos);</span><br><span class="line">                    float3 LightDir=UnityWorldSpaceLightDir(worldPos);</span><br><span class="line"></span><br><span class="line">                    float4 texcoord=tex2D(_MainTex,i.uv);</span><br><span class="line">                    clip(texcoord.a-_AlphaScale);</span><br><span class="line"></span><br><span class="line">                    float3 albedo=texcoord.rgb*_Color.rgb;</span><br><span class="line">                    float3 ambient=UNITY_LIGHTMODEL_AMBIENT.xyz;</span><br><span class="line"></span><br><span class="line">                    float diffuse=_LightColor0.rgb*albedo*saturate(dot(worldNormal,LightDir));</span><br><span class="line"></span><br><span class="line">                    return float4(ambient+diffuse,1.0);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    FallBack &quot;Diffuse&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7osl31c0004u8tvdcev9rvv" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/09/05/UnityShader-Note/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UnityShader Note</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/05/UnityShader-Practice/">UnityShader Practice</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/UnityShader-Note/">UnityShader Note</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/04/DataStruct-And-Algorithm/">DataStruct And Algorithm</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/">hexo 博客操作</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/04/Computer-Internet/">Computer Internet</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
