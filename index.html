@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7q94i8y0003a0tv9ihy9y6d" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7q9t03w0004u4tv0w5bdyuk" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -197,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7q94i910006a0tv22ms6by3" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7q9t03u0002u4tv2skx2ta6" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -252,13 +252,19 @@
 <p>一些常见的写法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//普通的二分查找</span><br><span class="line">//[l,r] 区间</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;=r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]==target)</span><br><span class="line">			return nums[mid];</span><br><span class="line">		if(nums[mid]&gt;target)</span><br><span class="line">			r=mid-1;</span><br><span class="line">		if(nums[mid]&lt;target)</span><br><span class="line">			l=mid+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//[l,r) 区间</span><br><span class="line">int binarySeach(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]==target)</span><br><span class="line">			return nums[mid];</span><br><span class="line">		if(nums[mid]&gt;target)</span><br><span class="line">			r=mid;</span><br><span class="line">		if(nums[mid]&lt;target)</span><br><span class="line">			l=mid+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//[l,r) 区间</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]==target)</span><br><span class="line">			return nums[mid];</span><br><span class="line">		if(nums[mid]&gt;target)</span><br><span class="line">			r=mid;</span><br><span class="line">		if(nums[mid]&lt;target)</span><br><span class="line">			l=mid+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">查找有序序列中最右侧的target</span><br><span class="line">[1,2,3,3,4,5,6,6,6,6,7,8,9,9] 应该return 9</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int res=-1,l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]&lt;=target)&#123;</span><br><span class="line">			l=mid;</span><br><span class="line">			res=mid;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			r=mid-1;</span><br><span class="line">	&#125;</span><br><span class="line">	return nums[res]==target?res:-1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查找最左侧的target</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int res=-1,l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]&gt;=target)&#123;</span><br><span class="line">			r=mid;</span><br><span class="line">			res=mid;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			l=mid+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return nums[res]==target?res:-1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>非有序序列的二分查找：局部最小值</p>
+<p>建议联想高数的极值问题</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7q94i8w0002a0tv5afgeqj1" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7q9t03v0003u4tvfjii6bve" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -300,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7q94i8z0004a0tv6kqn64li" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7q9t03x0005u4tv3n1q8tc1" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -344,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7q94i8s0001a0tv7kmp1gjr" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7q9t03r0001u4tv5iaw6j9y" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -388,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7q94i8j0000a0tv8qqw0uuo" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7q9t03j0000u4tv4gqreabi" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -427,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7q94i900005a0tvao8892df" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7q9t03y0006u4tv4b3h2k21" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
