@@ -71,6 +71,102 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-About-Cpp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/07/About-Cpp/" class="article-date">
+  <time class="dt-published" datetime="2022-09-07T14:56:23.000Z" itemprop="datePublished">2022-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/07/About-Cpp/">About Cpp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="C-各个基本变量的大小（64位）"><a href="#C-各个基本变量的大小（64位）" class="headerlink" title="C++各个基本变量的大小（64位）"></a>C++各个基本变量的大小（64位）</h3><p>单位均位Byte    1Byte&#x3D;8bit</p>
+<p>int 4,float 4,long 4,double 8,char 1,short 2,bool 1</p>
+<p>任意类型的指针8（指针存储的是一个地址，64位机的地址64bit&#x3D;8Byte）</p>
+<h3 id="引用和指针的区别"><a href="#引用和指针的区别" class="headerlink" title="引用和指针的区别"></a>引用和指针的区别</h3><p>引用是一个变量的别名不是实体故不能独立存在，在使用引用时必须初始化，而指针不需要初始化</p>
+<p>example</p>
+<p>int a&#x3D;0; int &amp;b&#x3D;a; (√)</p>
+<p>int &amp;a;(×)</p>
+<p>自增运算时不同</p>
+<p>example</p>
+<p>int a&#x3D;0,*b&#x3D;&amp;a;</p>
+<p>b++;实质上是内存指向的区域往后便宜了一个int的内存大小</p>
+<p>int a&#x3D;0,&amp;b&#x3D;a;</p>
+<p>b++;此时b&#x3D;1;</p>
+<p>指针可以为空而引用不可以</p>
+<h3 id="new和malloc"><a href="#new和malloc" class="headerlink" title="new和malloc"></a>new和malloc</h3><p>同样的问题还有delete和free</p>
+<p>首先malloc和free均为函数，而new和delete均为运算符</p>
+<p>new 应该和delete搭配，new []应该和delete []搭配</p>
+<p>malloc和free搭配</p>
+<p>malloc不能重载而new可以重载operator new（new也不能重载噢）</p>
+<p>malloc调用时需要自行计算分配到内存大小，而new可以省略这一步</p>
+<p>malloc返回的内存区域实际上是(void*),而new会依据自动转换成对应的类型</p>
+<h3 id="关于声明和定义"><a href="#关于声明和定义" class="headerlink" title="关于声明和定义"></a>关于声明和定义</h3><p>extern int a;&#x2F;&#x2F;声明了一个a变量</p>
+<p>int a;&#x2F;&#x2F;定义了一个a变量</p>
+<h3 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h3><p>重载发生在同一个类内部，函数名相同但参数列表不同（可能返回参数也不相同）</p>
+<p>重写发生在基类和派生类之间，且要求基类对应函数应该声明为virtual，依靠虚函数可以做到运行时多态</p>
+<h3 id="C-程序的编译过程"><a href="#C-程序的编译过程" class="headerlink" title="C++程序的编译过程"></a>C++程序的编译过程</h3><p>1.预处理：做一些宏定义的展开替换操作</p>
+<p>2.编译：进行语义语法分析，生产汇编语句</p>
+<p>3.汇编：生成机器码</p>
+<p>4.链接：链接成可执行的exe文件</p>
+<p>注：模板是在编译阶段确认类型的</p>
+<h3 id="运行时多态如何实现"><a href="#运行时多态如何实现" class="headerlink" title="运行时多态如何实现"></a>运行时多态如何实现</h3><p>1.要求基类对应的方法必须声明为virtual方法</p>
+<p>2.此时基类和父类的实际内存大小会比按照变量的计算多8Byte（64位机）-&gt;多出一个虚指针</p>
+<p>3.在编译时会生成虚函数表（存放在常量区）</p>
+<p>4.调用对应方法时依靠虚指针到虚函数表中查找真正应该执行的方法</p>
+<h3 id="指针数组与数组指针等傻傻分不清的问题"><a href="#指针数组与数组指针等傻傻分不清的问题" class="headerlink" title="指针数组与数组指针等傻傻分不清的问题"></a>指针数组与数组指针等傻傻分不清的问题</h3><p>int (*p)[10];&#x2F;&#x2F;一个指针，指向一个有10个元素的整型数组</p>
+<p>int *p[10];&#x2F;&#x2F;一个数组，存放了十个整型的指针</p>
+<p>int (*p)(int,int);&#x2F;&#x2F;一个指针，指向一个有两个整数作为输入参数，一个整数作为输出参数的函数（函数地址是函数名哦）</p>
+<p>int(*p(int int))[10];&#x2F;&#x2F;一个函数指针，指向输入位两个整数，输出位有十个整数的数组的函数</p>
+<p>typedef int arr[10]; arr* fun(int ,int);&#x2F;&#x2F;同上</p>
+<p>using int[10] arr;arr* fun(int,int);&#x2F;&#x2F;同上</p>
+<h3 id="Cast-Src"><a href="#Cast-Src" class="headerlink" title="Cast(Src)"></a>Cast<target>(Src)</target></h3><p>1.static_cast&lt;&gt;()</p>
+<p>​	只要没有底层const，就可以用此转换</p>
+<p>​	可以关闭一些精度损失警告，转换（void *）</p>
+<p>2.const_cast&lt;&gt;()</p>
+<p>​	专用于转换有底层const的变量</p>
+<p>3.reinterpret_cast&lt;&gt;()</p>
+<p>​	很危险的操作，用于提供更加底层的转化</p>
+<p>4.dynamic_cast&lt;&gt;()</p>
+<p>​	用于进行运行时多态的一些转换</p>
+<p>​	常见的输入有：</p>
+<p>​	dynamic_cast&lt;*&gt;(e);</p>
+<p>​	dynamic_cast&lt;&amp;&gt;(e);</p>
+<p>​	dynamic_cast&lt;&amp;&amp;&gt;(e); &#x2F;&#x2F;&amp;&amp;用于右值</p>
+<h3 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h3><p>int a;&#x2F;&#x2F;左值</p>
+<p>int a,b;int c&#x3D;a*b;&#x2F;&#x2F;a，b，c均为左值，而a*b为右值（易得右值仅为一个零时的数据，不占用内存资源）</p>
+<h3 id="构造函数与析构函数"><a href="#构造函数与析构函数" class="headerlink" title="构造函数与析构函数"></a>构造函数与析构函数</h3><p>1.构造函数不能设置为virtual，此时虚函数表尚未填入对应的方法，故不能实现多态</p>
+<p>2.析构函数默认为是可以重写的，且一般建议设置为virtual（防止部分编译器没默认允许析构函数重写）</p>
+<p>3.除构造函数以外的一切非static函数，均可以设置为virtual</p>
+<h3 id="拷贝构造函数和移动构造函数"><a href="#拷贝构造函数和移动构造函数" class="headerlink" title="拷贝构造函数和移动构造函数"></a>拷贝构造函数和移动构造函数</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7rsh94l0000igtv3duw3239" data-title="About Cpp" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-UnityShader-Practice" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/05/UnityShader-Practice/" class="article-date">
@@ -115,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7rjd7ua0004swtvhosv81tv" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7rsh94w0005igtvaigs4kxr" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -201,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7rjd7u90003swtv3wn719t8" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7rsh94w0004igtv11n9dwy4" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -273,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7rjd7u40001swtv87s22w7q" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7rsh94v0003igtvhaiicpya" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -315,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7rjd7ub0005swtvfwz32mc5" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7rsh94x0006igtv1h1w4r42" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -372,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7rjd7u70002swtv2ovp3g2k" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7rsh94u0002igtv0ewfep5q" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -416,7 +512,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7rjd7tx0000swtvdktognhh" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7rsh94s0001igtvfhe3ekgs" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -455,7 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7rjd7uc0006swtvf30g0d2v" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7rsh94y0007igtv5ut333v0" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
@@ -498,6 +594,10 @@
       <ul>
         
           <li>
+            <a href="/2022/09/07/About-Cpp/">About Cpp</a>
+          </li>
+        
+          <li>
             <a href="/2022/09/05/UnityShader-Practice/">UnityShader Practice</a>
           </li>
         
@@ -511,10 +611,6 @@
         
           <li>
             <a href="/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/">hexo 博客操作</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/04/Computer-Internet/">Computer Internet</a>
           </li>
         
       </ul>
