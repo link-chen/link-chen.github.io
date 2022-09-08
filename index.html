@@ -114,6 +114,7 @@
 <p>malloc不能重载而new可以重载operator new（new也不能重载噢）</p>
 <p>malloc调用时需要自行计算分配到内存大小，而new可以省略这一步</p>
 <p>malloc返回的内存区域实际上是(void*),而new会依据自动转换成对应的类型</p>
+<p>凡是new就必须delete，否则容易内存泄漏（当然可以考虑智能指针）</p>
 <h3 id="关于声明和定义"><a href="#关于声明和定义" class="headerlink" title="关于声明和定义"></a>关于声明和定义</h3><p>extern int a;&#x2F;&#x2F;声明了一个a变量</p>
 <p>int a;&#x2F;&#x2F;定义了一个a变量</p>
 <h3 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h3><p>重载发生在同一个类内部，函数名相同但参数列表不同（可能返回参数也不相同）</p>
@@ -133,13 +134,16 @@
 <p>int(*p(int int))[10];&#x2F;&#x2F;一个函数指针，指向输入位两个整数，输出位有十个整数的数组的函数</p>
 <p>typedef int arr[10]; arr* fun(int ,int);&#x2F;&#x2F;同上</p>
 <p>using int[10] arr;arr* fun(int,int);&#x2F;&#x2F;同上</p>
-<h3 id="Cast-Src"><a href="#Cast-Src" class="headerlink" title="Cast(Src)"></a>Cast<target>(Src)</target></h3><p>1.static_cast&lt;&gt;()</p>
+<h3 id="Cast-lt-Target-gt-Src"><a href="#Cast-lt-Target-gt-Src" class="headerlink" title="Cast&lt;Target*&gt;(Src)"></a>Cast&lt;Target*&gt;(Src)</h3><p>1.static_cast&lt;&gt;()</p>
 <p>​	只要没有底层const，就可以用此转换</p>
 <p>​	可以关闭一些精度损失警告，转换（void *）</p>
 <p>2.const_cast&lt;&gt;()</p>
 <p>​	专用于转换有底层const的变量</p>
 <p>3.reinterpret_cast&lt;&gt;()</p>
 <p>​	很危险的操作，用于提供更加底层的转化</p>
+<p>​	interpret是诠释的意思，那顾名思义reinterpret就是重新诠释这个区域</p>
+<p>​	依据此方法进行的类型转换，会在指针的底层解引用成Target类型的</p>
+<p>​	例如大端存储的int a&#x3D;0x61620000 本质上是整数，但如果通过reinterpret转换，打印的a会是“ab”(详情参见ASCII码)</p>
 <p>4.dynamic_cast&lt;&gt;()</p>
 <p>​	用于进行运行时多态的一些转换</p>
 <p>​	常见的输入有：</p>
@@ -151,11 +155,21 @@
 <h3 id="构造函数与析构函数"><a href="#构造函数与析构函数" class="headerlink" title="构造函数与析构函数"></a>构造函数与析构函数</h3><p>1.构造函数不能设置为virtual，此时虚函数表尚未填入对应的方法，故不能实现多态</p>
 <p>2.析构函数默认为是可以重写的，且一般建议设置为virtual（防止部分编译器没默认允许析构函数重写）</p>
 <p>3.除构造函数以外的一切非static函数，均可以设置为virtual</p>
-<h3 id="拷贝构造函数和移动构造函数"><a href="#拷贝构造函数和移动构造函数" class="headerlink" title="拷贝构造函数和移动构造函数"></a>拷贝构造函数和移动构造函数</h3>
+<h3 id="拷贝构造函数和移动构造函数"><a href="#拷贝构造函数和移动构造函数" class="headerlink" title="拷贝构造函数和移动构造函数"></a>拷贝构造函数和移动构造函数</h3><h5 id="首先明确哪些情况下会使用拷贝构造函数？"><a href="#首先明确哪些情况下会使用拷贝构造函数？" class="headerlink" title="首先明确哪些情况下会使用拷贝构造函数？"></a>首先明确哪些情况下会使用拷贝构造函数？</h5><p>1.有等号发生时（需要重载赋值运算符支持这一行为）</p>
+<p>2.函数传入的是一个类，但既不是指针也不是引用时</p>
+<p>3.返回一个类的对象，同样不是指针或者引用时</p>
+<h5 id="默认的拷贝构造函数"><a href="#默认的拷贝构造函数" class="headerlink" title="默认的拷贝构造函数"></a>默认的拷贝构造函数</h5><p>系统会自动生成一个拷贝构造函数</p>
+<p>如果想要将系统生成的拷贝构造函数设为默认的</p>
+<p>ClassA(ClassA&amp;)&#x3D;default;</p>
+<p>如果要编译器不生产默认拷贝构造函数</p>
+<p>ClassA(ClassA&amp;)&#x3D;delete;</p>
+<h5 id="移动构造函数的使用"><a href="#移动构造函数的使用" class="headerlink" title="移动构造函数的使用"></a>移动构造函数的使用</h5><p>1.使用std::move(t);&#x2F;&#x2F;t是被移动的类</p>
+<p>2.移动构造函数是来骗，来偷袭，直接抢走t的部分内存区域的指针，并将t的指针指向区域为null</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7rsh94l0000igtv3duw3239" data-title="About Cpp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7t75wz900005ctv86bi4ise" data-title="About Cpp" class="article-share-link">Share</a>
       
       
       
@@ -211,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7rsh94w0005igtvaigs4kxr" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7t75wzr00055ctv986o3a2t" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -297,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7rsh94w0004igtv11n9dwy4" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7t75wzq00045ctv84g41z3k" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -369,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7rsh94v0003igtvhaiicpya" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7t75wzo00035ctvbzzd9o7b" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -411,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7rsh94x0006igtv1h1w4r42" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7t75wzs00065ctv4r0x8gkz" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -468,7 +482,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7rsh94u0002igtv0ewfep5q" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7t75wzn00025ctvd54t1dt2" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -512,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7rsh94s0001igtvfhe3ekgs" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7t75wzj00015ctvhxzx3jwo" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -551,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7rsh94y0007igtv5ut333v0" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7t75wzt00075ctv02cz8pwv" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
