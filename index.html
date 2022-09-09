@@ -169,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7t75wz900005ctv86bi4ise" data-title="About Cpp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7ulti9j0001r8tvbw668wlw" data-title="About Cpp" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7t75wzr00055ctv986o3a2t" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7ulti9n0005r8tv8b4ddita" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -311,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7t75wzq00045ctv84g41z3k" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7ulti9m0004r8tv2rf65mhf" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -359,13 +359,14 @@
 <p>依靠递归的归并排序模板</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">void merge(vector&lt;int&gt; &amp;num,int l,int mid,int r)</span><br><span class="line">&#123;	</span><br><span class="line">	vector&lt;int&gt; help(r-l+1);</span><br><span class="line">	int i=0;</span><br><span class="line">	int p1=l;</span><br><span class="line">	int p2=mid+1;</span><br><span class="line">	while(p1&lt;=mid&amp;&amp;p2&lt;=r)</span><br><span class="line">	&#123;</span><br><span class="line">		help[i++]=num[p1]&lt;=num[p2]?num[p1++]:num[p2++];</span><br><span class="line">	&#125;</span><br><span class="line">	while(p1&lt;=mid)</span><br><span class="line">	&#123;</span><br><span class="line">		help[i++]=num[p1++];</span><br><span class="line">	&#125;</span><br><span class="line">	while(p2&lt;=r)</span><br><span class="line">	&#123;</span><br><span class="line">		help[i++]=num[p2++];</span><br><span class="line">	&#125;</span><br><span class="line">	for(int j=0;j&lt;help.size();j++)</span><br><span class="line">	&#123;</span><br><span class="line">		num[l+j]=help[j];</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">void process(vector&lt;int&gt; &amp;num,int l,int r)</span><br><span class="line">&#123;</span><br><span class="line">	if(l==r)</span><br><span class="line">	return;</span><br><span class="line">	int mid=l+((r-l)/2);</span><br><span class="line">	process(num,l,mid);</span><br><span class="line">	process(num,mid+1,r);</span><br><span class="line">	merge(num,l,mid,r);</span><br><span class="line">&#125;</span><br><span class="line">void mergesort(vector&lt;int&gt; &amp;num)</span><br><span class="line">&#123;</span><br><span class="line">	if(num.size()&lt;2)</span><br><span class="line">	return;</span><br><span class="line">	process(num,0,num.size()-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>例题：leetcode排序链表</p>
+<p>例题：leetcode排序链表148</p>
 <p>使用冒泡排序O(n^2)会超时，应为链表无法随机访问，无法使用快速排序</p>
 <p>考虑使用归并排序</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ListNode* SortList(ListNode* head)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">void MergeList(ListNode* head,ListNode* tail)&#123;</span><br><span class="line">	if(!head)</span><br><span class="line">		return head;</span><br><span class="line">	if(head-&gt;next==tail)&#123;</span><br><span class="line">		hede-&gt;next=nullptr;</span><br><span class="line">		return head;</span><br><span class="line">	&#125;</span><br><span class="line">	ListNode *slow=head,*falst=head;</span><br><span class="line">	while(fast!=tail)&#123;</span><br><span class="line">		slow=slow-&gt;next;</span><br><span class="line">		fast=fast-&gt;next;</span><br><span class="line">		if(fast!=tail)</span><br><span class="line">			fast=fast-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	ListNode* mid=slow;</span><br><span class="line">	//merge使用的是合并有序链表的模板，见leetcode第21题</span><br><span class="line">	return merge(MergeList(head,mid),MergeList(mid,tail));</span><br><span class="line">&#125;</span><br><span class="line">ListNode* SortList(ListNode* head)&#123;</span><br><span class="line">	return MergeList(head,nullptr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
+<p>归并排序的应用场景：大规模数据的排序问题：</p>
+<p>可以先对数据进行划分，制成一部分一部分有序的数据</p>
+<p>之后进行合并即可</p>
 <h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><p>二分查找不一定要求有序，只要能有二义性（能够划分为两类即可）</p>
 <p>查找的时间复杂度O(logn)</p>
 <p>一些常见的写法</p>
@@ -383,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7t75wzo00035ctvbzzd9o7b" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7ulti9l0002r8tvb6xyb5i0" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -425,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7t75wzs00065ctv4r0x8gkz" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7ulti9o0006r8tvgomb3gms" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -482,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7t75wzn00025ctvd54t1dt2" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7ulti9m0003r8tv0vi338j0" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -526,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7t75wzj00015ctvhxzx3jwo" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7ulti9f0000r8tvgg0gei32" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -565,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7t75wzt00075ctv02cz8pwv" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7ulti9p0007r8tvcblhesr3" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
