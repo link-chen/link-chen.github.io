@@ -14,7 +14,7 @@
 <meta property="og:description" content="快速排序快速排序原理：选取一个pivote，作为标杆，将小于该数的数放在pivote前，大于该数的放在pivote后面 不断划分两个区间，左侧为小于该数的，右侧为大于该数的 直到左右两个区间不再存在时，此时数组已经有序 时间复杂度O(nlogn)，是不稳定排序 123456789101112131415&#x2F;&#x2F;输入的r应该是nums.size()-1void QuickSort(vector&lt;i">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-04T15:55:37.000Z">
-<meta property="article:modified_time" content="2022-09-10T07:03:17.299Z">
+<meta property="article:modified_time" content="2022-09-10T08:07:23.505Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -147,11 +147,20 @@
 
 <p>非有序序列的二分查找：局部最小值</p>
 <p>建议联想高数的极值问题</p>
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>用空间换取时间</p>
+<p>使用一组数组存放前面所有数的和，此后常数时间获取前n个数的和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;&amp; PreSum(vector&lt;int&gt;&amp; nums)&#123;</span><br><span class="line">	vector&lt;int&gt; arr;</span><br><span class="line">	arr.push_back(nums.size()+1,0);</span><br><span class="line">	for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">		arr[i+1]=arr[i]+nums[i];</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>在图的算法中很有用</p>
+<p>每个节点初始阶段，其顶层节点均为自身，依靠节点是否拥有共同的顶层节点排定是否在同一个集合内</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class DisjoinSet&#123;</span><br><span class="line">	private:</span><br><span class="line">		unordered_map&lt;int,in&gt; disjoinset;</span><br><span class="line">	public:</span><br><span class="line">		void Init(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">			for(int &amp;num:arr)&#123;</span><br><span class="line">				disjoinset[num]=num;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		void Add(int num)&#123;</span><br><span class="line">			disjoinset[num]=num;</span><br><span class="line">		&#125;</span><br><span class="line">		bool FindTheSame(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return true;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		void Merge(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return;</span><br><span class="line">			disjoinset[b]=disjoinset[a];//b挂在a的顶层节点下</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在连通域问题，如岛屿数量，岛屿面积等问题上有奇效</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7vkatyv0003y8tvhe7ybv7t" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7vml2j90003kstvcyb3399x" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       

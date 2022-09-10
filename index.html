@@ -169,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7vkatyj0000y8tv11q2hr3p" data-title="About Cpp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7vml2iy0000kstvhnd25bx0" data-title="About Cpp" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7vkatz00005y8tvctdc0ey4" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7vml2jc0005kstv51giafgw" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -311,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7vkatyz0004y8tvakkh921c" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7vml2ja0004kstvc0069aek" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -397,11 +397,20 @@
 
 <p>非有序序列的二分查找：局部最小值</p>
 <p>建议联想高数的极值问题</p>
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>用空间换取时间</p>
+<p>使用一组数组存放前面所有数的和，此后常数时间获取前n个数的和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;&amp; PreSum(vector&lt;int&gt;&amp; nums)&#123;</span><br><span class="line">	vector&lt;int&gt; arr;</span><br><span class="line">	arr.push_back(nums.size()+1,0);</span><br><span class="line">	for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">		arr[i+1]=arr[i]+nums[i];</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>在图的算法中很有用</p>
+<p>每个节点初始阶段，其顶层节点均为自身，依靠节点是否拥有共同的顶层节点排定是否在同一个集合内</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class DisjoinSet&#123;</span><br><span class="line">	private:</span><br><span class="line">		unordered_map&lt;int,in&gt; disjoinset;</span><br><span class="line">	public:</span><br><span class="line">		void Init(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">			for(int &amp;num:arr)&#123;</span><br><span class="line">				disjoinset[num]=num;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		void Add(int num)&#123;</span><br><span class="line">			disjoinset[num]=num;</span><br><span class="line">		&#125;</span><br><span class="line">		bool FindTheSame(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return true;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		void Merge(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return;</span><br><span class="line">			disjoinset[b]=disjoinset[a];//b挂在a的顶层节点下</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在连通域问题，如岛屿数量，岛屿面积等问题上有奇效</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7vkatyv0003y8tvhe7ybv7t" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7vml2j90003kstvcyb3399x" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -443,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7vkatz20007y8tv6b448vv8" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7vml2jd0006kstve7o14nc2" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -500,7 +509,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7vkatyu0002y8tvgsl3csyt" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7vml2j80002kstv53b4ciuz" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -544,7 +553,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7vkatyr0001y8tva7ne5cbh" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7vml2j50001kstv41219rkl" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -583,7 +592,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7vkatz10006y8tv1sse9cnh" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7vml2je0007kstv3yr9e8bu" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
