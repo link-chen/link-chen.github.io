@@ -169,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7ulti9j0001r8tvbw668wlw" data-title="About Cpp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7vkatyj0000y8tv11q2hr3p" data-title="About Cpp" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7ulti9n0005r8tv8b4ddita" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7vkatz00005y8tvctdc0ey4" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -311,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7ulti9m0004r8tv2rf65mhf" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7vkatyz0004y8tvakkh921c" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -367,6 +367,23 @@
 <p>归并排序的应用场景：大规模数据的排序问题：</p>
 <p>可以先对数据进行划分，制成一部分一部分有序的数据</p>
 <p>之后进行合并即可</p>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>堆是一个数组，但可以用完全二叉树表示</p>
+<p>大根堆：父节点索引为i，2<em>i和2</em>i+1的值均小于i的值</p>
+<p>小根堆：父节点索引为i，2<em>i和2</em>i+1的值均大于i的值</p>
+<p>[9,8,7,6,5,4,3,2,1] 大根堆</p>
+<p>[1,2,3,4,5,6,7,8,9] 小根堆</p>
+<p>c++自带的堆结构-&gt; priority_queue</p>
+<p>自定义的比较器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">auto compare=[](int a,int b)&#123;</span><br><span class="line">	return a&lt;b;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;int,vector&lt;int&gt;,decltype(compare)&gt; queue(compare);</span><br></pre></td></tr></table></figure>
+
+<p>引用：移动不超过n次使数组有序（即基本有序数组排序）</p>
+<p>使用一个堆，从数组头部开始放入n个数</p>
+<p>此后依次取出堆头元素放入新数组，并将后面数组的元素放入堆中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; Sort(vector&lt;int&gt;&amp;nums,int n)&#123;</span><br><span class="line">	priority_queue&lt;int,vector&lt;int&gt;,decltype(compare)&gt; queue(compare);</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">		queue.push(nums[i]);</span><br><span class="line">	vector&lt;int&gt; res;</span><br><span class="line">	for(int i=n;i&lt;nums.size();i++)&#123;</span><br><span class="line">		res.push(queue.top());</span><br><span class="line">		queue.pop();</span><br><span class="line">		queue.push(nums[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	while(!queue.empty())&#123;</span><br><span class="line">		res.push(queue.top());</span><br><span class="line">		queue.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>非基于选择的排序，可以突破基于比较的O(nlogn)</p>
+<p>1.为什么基于比较的排序会使排序效率的极限为O(nlogn)?</p>
+<p>​	二叉搜索树的平均查找次数为logn，每个元素查找logn次，总共n个元素，得nlogn</p>
 <h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><p>二分查找不一定要求有序，只要能有二义性（能够划分为两类即可）</p>
 <p>查找的时间复杂度O(logn)</p>
 <p>一些常见的写法</p>
@@ -384,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7ulti9l0002r8tvb6xyb5i0" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7vkatyv0003y8tvhe7ybv7t" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -426,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7ulti9o0006r8tvgomb3gms" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7vkatz20007y8tv6b448vv8" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -483,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7ulti9m0003r8tv0vi338j0" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7vkatyu0002y8tvgsl3csyt" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -527,7 +544,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7ulti9f0000r8tvgg0gei32" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7vkatyr0001y8tva7ne5cbh" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -566,7 +583,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7ulti9p0007r8tvcblhesr3" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7vkatz10006y8tv1sse9cnh" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
