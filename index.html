@@ -165,11 +165,23 @@
 <p>ClassA(ClassA&amp;)&#x3D;delete;</p>
 <h5 id="移动构造函数的使用"><a href="#移动构造函数的使用" class="headerlink" title="移动构造函数的使用"></a>移动构造函数的使用</h5><p>1.使用std::move(t);&#x2F;&#x2F;t是被移动的类</p>
 <p>2.移动构造函数是来骗，来偷袭，直接抢走t的部分内存区域的指针，并将t的指针指向区域为null</p>
+<h3 id="关于define和const定义的值"><a href="#关于define和const定义的值" class="headerlink" title="关于define和const定义的值"></a>关于define和const定义的值</h3><p>define使一个宏而不是变量，将会在编译的预处理阶段进行宏展开，将值进行替换，不会占用内存</p>
+<p>const是定义了一个常量，实际上在内存中占有一段区域</p>
+<h3 id="函数调用的过程"><a href="#函数调用的过程" class="headerlink" title="函数调用的过程"></a>函数调用的过程</h3><p>+++++++++ 入栈 ++++++++++++<br>将实参从右向左压入栈<br>压入返回地址<br>压入主调函数的基地址<br>跳到被调用函数的地址，执行函数代码，局部变量按声明顺序依次压入栈<br>将返回值放入寄存器eax(累加器)中<br>+++++++++ 出栈 ++++++++++++<br>局部变量全部出栈<br>返回地址出栈，找到原执行地址<br>形参出栈<br>赋值操作将寄存器中的返回值赋给左值（如果有的话）</p>
+<h3 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h3><p>1.sizeof是运算符，不是函数</p>
+<p>2.sizeof(数组名)-&gt;会得到整个数组占用的内存大小</p>
+<p>3.sizeof(指针)-&gt;依据处理器位数确定（64-&gt;8,32-&gt;4）,直接指向内存的区段的大小</p>
+<p>4.函数中，传入的参数有数组，对该数组名用sizeof-&gt;8(64位机)	</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void fun(int arr[])&#123;</span><br><span class="line">	cout&lt;&lt;sizeof(arr);</span><br><span class="line">&#125;</span><br><span class="line">//64位处理器上打印的结果应该是8</span><br></pre></td></tr></table></figure>
+
+<p>5.对于vector等用sizeof，得到一个元素的大小（64位机上vector<int> 应该是24）</int></p>
+<h3 id="i-与-i"><a href="#i-与-i" class="headerlink" title="i++与++i"></a>i++与++i</h3><p>i++是先取i，之后i+1</p>
+<p>++i是先i+1，之后取i</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7wpd0x8000010tvdhnobfaz" data-title="About Cpp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7wq3uy30000e4tv7xq98e37" data-title="About Cpp" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7wpd0xn000510tv6v0seaaq" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7wq3uyc0005e4tvdrsrd1gd" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -311,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7wpd0xm000410tv8var7mia" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7wq3uyc0004e4tvah6ld6sy" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -436,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7wpd0xk000310tvgnb30vup" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7wq3uyb0003e4tv3mz46w7r" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -478,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7wpd0xo000610tv1r5tehf0" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7wq3uyd0006e4tvg6j4g20m" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -535,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7wpd0xj000210tv90vl55yx" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7wq3uya0002e4tv0pbz4rhj" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -579,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7wpd0xg000110tvbttv4dma" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7wq3uy80001e4tv41eda0p7" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -618,7 +630,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7wpd0xp000710tvcsrc2v9x" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7wq3uye0007e4tvh66x8z2n" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
