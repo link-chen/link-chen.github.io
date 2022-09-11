@@ -169,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7vnrb9s0000f4tvh7ilanr5" data-title="About Cpp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl7wpd0x8000010tvdhnobfaz" data-title="About Cpp" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7vnrba50005f4tva3ac05k1" data-title="UnityShader Practice" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl7wpd0xn000510tv6v0seaaq" data-title="UnityShader Practice" class="article-share-link">Share</a>
       
       
       
@@ -311,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7vnrba40004f4tv5qc946qt" data-title="UnityShader Note" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl7wpd0xm000410tv8var7mia" data-title="UnityShader Note" class="article-share-link">Share</a>
       
       
       
@@ -423,14 +423,20 @@
 <li><p>提取出int的最左侧的1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int x;//提取x的最左侧的1</span><br><span class="line">int n=1;</span><br><span class="line">int pos=0;</span><br><span class="line">while(x)&#123;</span><br><span class="line">	if(x&amp;n)</span><br><span class="line">		break;</span><br><span class="line">	pos++;</span><br><span class="line">	x=x&gt;&gt;1;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;pos;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>一个数组中，除一个数出现一次以外其他数均出现两次，查找该数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int findNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int res=arr[0];</span><br><span class="line">	for(int i=1;i&lt;arr.size();i++)</span><br><span class="line">		res^=arr[i];</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>提取最右侧的1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void findOne(int num)&#123;</span><br><span class="line">	int res=0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组中只有一个数出现奇数次，其他数出现偶数次，求这个数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int findNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int res=arr[0];</span><br><span class="line">	for(int i=1;i&lt;arr.size();i++)</span><br><span class="line">		res^=arr[i];</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组中有两个数出现了奇数次，其他数均出现偶数次，求这两个数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//1哈希表</span><br><span class="line">//位运算技巧</span><br><span class="line">pair&lt;int,int&gt; findTwoNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int res=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		res^=arr[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7vnrba30003f4tv3cep4jq6" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl7wpd0xk000310tvgnb30vup" data-title="DataStruct And Algorithm" class="article-share-link">Share</a>
       
       
       
@@ -472,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7vnrba80007f4tv7p7b3fb4" data-title="hexo 博客操作" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl7wpd0xo000610tv1r5tehf0" data-title="hexo 博客操作" class="article-share-link">Share</a>
       
       
       
@@ -529,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7vnrba20002f4tv83lvfy2k" data-title="Computer Internet" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl7wpd0xj000210tv90vl55yx" data-title="Computer Internet" class="article-share-link">Share</a>
       
       
       
@@ -573,7 +579,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7vnrb9z0001f4tv516ibuyt" data-title="Computer Graphics" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7wpd0xg000110tvbttv4dma" data-title="Computer Graphics" class="article-share-link">Share</a>
       
       
       
@@ -612,7 +618,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7vnrba70006f4tvbdil7f2j" data-title="去码头整点薯条" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl7wpd0xp000710tvcsrc2v9x" data-title="去码头整点薯条" class="article-share-link">Share</a>
       
       
       
