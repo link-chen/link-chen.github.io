@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Cpp - 蚌埠住了</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="C++各个基本变量的大小（64位）单位均位Byte    1Byte&amp;#x3D;8bit
+int 4,float 4,long 4,double 8,char 1,short 2,bool 1
+任意,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="蚌埠住了" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="About Cpp - 蚌埠住了"/>
+    <meta name="twitter:description" content="C++各个基本变量的大小（64位）单位均位Byte    1Byte&amp;#x3D;8bit
+int 4,float 4,long 4,double 8,char 1,short 2,bool 1
+任意,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="蚌埠住了"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="About Cpp - 蚌埠住了"/>
+    <meta property="og:description" content="C++各个基本变量的大小（64位）单位均位Byte    1Byte&amp;#x3D;8bit
+int 4,float 4,long 4,double 8,char 1,short 2,bool 1
+任意,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">蚌埠住了</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">About Cpp</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">About Cpp</h1>
+        <div class="stuff">
+            <span>九月 07, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="C-各个基本变量的大小（64位）"><a href="#C-各个基本变量的大小（64位）" class="headerlink" title="C++各个基本变量的大小（64位）"></a>C++各个基本变量的大小（64位）</h3><p>单位均位Byte    1Byte&#x3D;8bit</p>
+<p>int 4,float 4,long 4,double 8,char 1,short 2,bool 1</p>
+<p>任意类型的指针8（指针存储的是一个地址，64位机的地址64bit&#x3D;8Byte）</p>
+<h3 id="引用和指针的区别"><a href="#引用和指针的区别" class="headerlink" title="引用和指针的区别"></a>引用和指针的区别</h3><p>引用是一个变量的别名不是实体故不能独立存在，在使用引用时必须初始化，而指针不需要初始化</p>
+<p>example</p>
+<p>int a&#x3D;0; int &amp;b&#x3D;a; (√)</p>
+<p>int &amp;a;(×)</p>
+<p>自增运算时不同</p>
+<p>example</p>
+<p>int a&#x3D;0,*b&#x3D;&amp;a;</p>
+<p>b++;实质上是内存指向的区域往后便宜了一个int的内存大小</p>
+<p>int a&#x3D;0,&amp;b&#x3D;a;</p>
+<p>b++;此时b&#x3D;1;</p>
+<p>指针可以为空而引用不可以</p>
+<h3 id="new和malloc"><a href="#new和malloc" class="headerlink" title="new和malloc"></a>new和malloc</h3><p>同样的问题还有delete和free</p>
+<p>首先malloc和free均为函数，而new和delete均为运算符</p>
+<p>new 应该和delete搭配，new []应该和delete []搭配</p>
+<p>malloc和free搭配</p>
+<p>malloc不能重载而new可以重载operator new（new也不能重载噢）</p>
+<p>malloc调用时需要自行计算分配到内存大小，而new可以省略这一步</p>
+<p>malloc返回的内存区域实际上是(void*),而new会依据自动转换成对应的类型</p>
+<p>凡是new就必须delete，否则容易内存泄漏（当然可以考虑智能指针）</p>
+<h3 id="关于声明和定义"><a href="#关于声明和定义" class="headerlink" title="关于声明和定义"></a>关于声明和定义</h3><p>extern int a;&#x2F;&#x2F;声明了一个a变量</p>
+<p>int a;&#x2F;&#x2F;定义了一个a变量</p>
+<h3 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h3><p>重载发生在同一个类内部，函数名相同但参数列表不同（可能返回参数也不相同）</p>
+<p>重写发生在基类和派生类之间，且要求基类对应函数应该声明为virtual，依靠虚函数可以做到运行时多态</p>
+<h3 id="C-程序的编译过程"><a href="#C-程序的编译过程" class="headerlink" title="C++程序的编译过程"></a>C++程序的编译过程</h3><p>1.预处理：做一些宏定义的展开替换操作</p>
+<p>2.编译：进行语义语法分析，生产汇编语句</p>
+<p>3.汇编：生成机器码</p>
+<p>4.链接：链接成可执行的exe文件</p>
+<p>注：模板是在编译阶段确认类型的</p>
+<h3 id="运行时多态如何实现"><a href="#运行时多态如何实现" class="headerlink" title="运行时多态如何实现"></a>运行时多态如何实现</h3><p>1.要求基类对应的方法必须声明为virtual方法</p>
+<p>2.此时基类和父类的实际内存大小会比按照变量的计算多8Byte（64位机）-&gt;多出一个虚指针</p>
+<p>3.在编译时会生成虚函数表（存放在常量区）</p>
+<p>4.调用对应方法时依靠虚指针到虚函数表中查找真正应该执行的方法</p>
+<h3 id="指针数组与数组指针等傻傻分不清的问题"><a href="#指针数组与数组指针等傻傻分不清的问题" class="headerlink" title="指针数组与数组指针等傻傻分不清的问题"></a>指针数组与数组指针等傻傻分不清的问题</h3><p>int (*p)[10];&#x2F;&#x2F;一个指针，指向一个有10个元素的整型数组</p>
+<p>int *p[10];&#x2F;&#x2F;一个数组，存放了十个整型的指针</p>
+<p>int (*p)(int,int);&#x2F;&#x2F;一个指针，指向一个有两个整数作为输入参数，一个整数作为输出参数的函数（函数地址是函数名哦）</p>
+<p>int(*p(int int))[10];&#x2F;&#x2F;一个函数指针，指向输入位两个整数，输出位有十个整数的数组的函数</p>
+<p>typedef int arr[10]; arr* fun(int ,int);&#x2F;&#x2F;同上</p>
+<p>using int[10] arr;arr* fun(int,int);&#x2F;&#x2F;同上</p>
+<h3 id="Cast-lt-Target-gt-Src"><a href="#Cast-lt-Target-gt-Src" class="headerlink" title="Cast&lt;Target*&gt;(Src)"></a>Cast&lt;Target*&gt;(Src)</h3><p>1.static_cast&lt;&gt;()</p>
+<p>​	只要没有底层const，就可以用此转换</p>
+<p>​	可以关闭一些精度损失警告，转换（void *）</p>
+<p>2.const_cast&lt;&gt;()</p>
+<p>​	专用于转换有底层const的变量</p>
+<p>3.reinterpret_cast&lt;&gt;()</p>
+<p>​	很危险的操作，用于提供更加底层的转化</p>
+<p>​	interpret是诠释的意思，那顾名思义reinterpret就是重新诠释这个区域</p>
+<p>​	依据此方法进行的类型转换，会在指针的底层解引用成Target类型的</p>
+<p>​	例如大端存储的int a&#x3D;0x61620000 本质上是整数，但如果通过reinterpret转换，打印的a会是“ab”(详情参见ASCII码)</p>
+<p>4.dynamic_cast&lt;&gt;()</p>
+<p>​	用于进行运行时多态的一些转换</p>
+<p>​	常见的输入有：</p>
+<p>​	dynamic_cast&lt;*&gt;(e);</p>
+<p>​	dynamic_cast&lt;&amp;&gt;(e);</p>
+<p>​	dynamic_cast&lt;&amp;&amp;&gt;(e); &#x2F;&#x2F;&amp;&amp;用于右值</p>
+<h3 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h3><p>int a;&#x2F;&#x2F;左值</p>
+<p>int a,b;int c&#x3D;a*b;&#x2F;&#x2F;a，b，c均为左值，而a*b为右值（易得右值仅为一个零时的数据，不占用内存资源）</p>
+<h3 id="构造函数与析构函数"><a href="#构造函数与析构函数" class="headerlink" title="构造函数与析构函数"></a>构造函数与析构函数</h3><p>1.构造函数不能设置为virtual，此时虚函数表尚未填入对应的方法，故不能实现多态</p>
+<p>2.析构函数默认为是可以重写的，且一般建议设置为virtual（防止部分编译器没默认允许析构函数重写）</p>
+<p>3.除构造函数以外的一切非static函数，均可以设置为virtual</p>
+<h3 id="拷贝构造函数和移动构造函数"><a href="#拷贝构造函数和移动构造函数" class="headerlink" title="拷贝构造函数和移动构造函数"></a>拷贝构造函数和移动构造函数</h3><h5 id="首先明确哪些情况下会使用拷贝构造函数？"><a href="#首先明确哪些情况下会使用拷贝构造函数？" class="headerlink" title="首先明确哪些情况下会使用拷贝构造函数？"></a>首先明确哪些情况下会使用拷贝构造函数？</h5><p>1.有等号发生时（需要重载赋值运算符支持这一行为）</p>
+<p>2.函数传入的是一个类，但既不是指针也不是引用时</p>
+<p>3.返回一个类的对象，同样不是指针或者引用时</p>
+<h5 id="默认的拷贝构造函数"><a href="#默认的拷贝构造函数" class="headerlink" title="默认的拷贝构造函数"></a>默认的拷贝构造函数</h5><p>系统会自动生成一个拷贝构造函数</p>
+<p>如果想要将系统生成的拷贝构造函数设为默认的</p>
+<p>ClassA(ClassA&amp;)&#x3D;default;</p>
+<p>如果要编译器不生产默认拷贝构造函数</p>
+<p>ClassA(ClassA&amp;)&#x3D;delete;</p>
+<h5 id="移动构造函数的使用"><a href="#移动构造函数的使用" class="headerlink" title="移动构造函数的使用"></a>移动构造函数的使用</h5><p>1.使用std::move(t);&#x2F;&#x2F;t是被移动的类</p>
+<p>2.移动构造函数是来骗，来偷袭，直接抢走t的部分内存区域的指针，并将t的指针指向区域为null</p>
+<h3 id="关于define和const定义的值"><a href="#关于define和const定义的值" class="headerlink" title="关于define和const定义的值"></a>关于define和const定义的值</h3><p>define使一个宏而不是变量，将会在编译的预处理阶段进行宏展开，将值进行替换，不会占用内存</p>
+<p>const是定义了一个常量，实际上在内存中占有一段区域</p>
+<h3 id="函数调用的过程"><a href="#函数调用的过程" class="headerlink" title="函数调用的过程"></a>函数调用的过程</h3><p>+++++++++ 入栈 ++++++++++++<br>将实参从右向左压入栈<br>压入返回地址<br>压入主调函数的基地址<br>跳到被调用函数的地址，执行函数代码，局部变量按声明顺序依次压入栈<br>将返回值放入寄存器eax(累加器)中<br>+++++++++ 出栈 ++++++++++++<br>局部变量全部出栈<br>返回地址出栈，找到原执行地址<br>形参出栈<br>赋值操作将寄存器中的返回值赋给左值（如果有的话）</p>
+<h3 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h3><p>1.sizeof是运算符，不是函数</p>
+<p>2.sizeof(数组名)-&gt;会得到整个数组占用的内存大小</p>
+<p>3.sizeof(指针)-&gt;依据处理器位数确定（64-&gt;8,32-&gt;4）,直接指向内存的区段的大小</p>
+<p>4.函数中，传入的参数有数组，对该数组名用sizeof-&gt;8(64位机)	</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void fun(int arr[])&#123;</span><br><span class="line">	cout&lt;&lt;sizeof(arr);</span><br><span class="line">&#125;</span><br><span class="line">//64位处理器上打印的结果应该是8</span><br></pre></td></tr></table></figure>
+
+<p>5.对于vector等用sizeof，得到一个元素的大小（64位机上vector<int> 应该是24）</int></p>
+<h3 id="i-与-i"><a href="#i-与-i" class="headerlink" title="i++与++i"></a>i++与++i</h3><p>i++是先取i，之后i+1</p>
+<p>++i是先i+1，之后取i</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
