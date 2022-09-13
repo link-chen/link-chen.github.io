@@ -14,7 +14,7 @@
 <meta property="og:description" content="如何判定一个游戏画面质量的高低？画面越亮质量越高why：越亮画面细节（建模细节，着色上的考量等等）越容易看到，所以制作的越好的游戏才会使场景越亮(可以见一些) 坐标变换1.向量vector：一个既有大小又有方向的量（头上带箭头）  A(x1,y1),B(x2,y2),向量 AB&#x3D;B-A&#x3D;(x2,y2)-(x1,y1),易得向量AB!&#x3D;向量BA  向量数量积：$\vec">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T15:53:36.000Z">
-<meta property="article:modified_time" content="2022-09-12T06:33:49.547Z">
+<meta property="article:modified_time" content="2022-09-13T15:10:22.595Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -113,11 +113,17 @@
 <p>​	4）仿射（依托于缩放，平移和旋转）</p>
 <h3 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h3><p>光栅（grating）设备可以直接理解为显示器</p>
 <p>从mvp矩阵后得到的坐标矩阵转换到最终的屏幕空间</p>
-<p>[[width&#x2F;2,0,0,width&#x2F;2],[0,height&#x2F;2,0,height&#x2F;2],[0,0,1,0]],[0,0,0,1]]</p>
-<h5 id="光栅化矩阵："><a href="#光栅化矩阵：" class="headerlink" title="光栅化矩阵："></a>光栅化矩阵：</h5><h5 id="走样的原因以及反走样："><a href="#走样的原因以及反走样：" class="headerlink" title="走样的原因以及反走样："></a>走样的原因以及反走样：</h5><h5 id="深度检测算法"><a href="#深度检测算法" class="headerlink" title="深度检测算法"></a>深度检测算法</h5><p>1.画家算法的应用与局限性分析</p>
+<h5 id="光栅化矩阵："><a href="#光栅化矩阵：" class="headerlink" title="光栅化矩阵："></a>光栅化矩阵：</h5><p>[[width&#x2F;2,0,0,width&#x2F;2],[0,height&#x2F;2,0,height&#x2F;2],[0,0,1,0]],[0,0,0,1]]</p>
+<h5 id="走样的原因以及反走样："><a href="#走样的原因以及反走样：" class="headerlink" title="走样的原因以及反走样："></a>走样的原因以及反走样：</h5><p>根本原因是因为采样频率跟不上信号变化频率</p>
+<p>反走样的方法：</p>
+<p>1.先模糊，后采样</p>
+<p>2.区域加权采样</p>
+<h5 id="深度检测算法"><a href="#深度检测算法" class="headerlink" title="深度检测算法"></a>深度检测算法</h5><p>1.画家算法的应用与局限性分析</p>
 <p>时间复杂度O(nlogn)，通过排序之后，得到场景中各个物体的遮挡关系</p>
 <p>缺点：不能处理循环遮挡的问题</p>
-<p>2.Z-Buffer算法的应用与优化方法</p>
+<p>2.Z-Buffer算法的原理及其应用与优化方法</p>
+<p>原理：使用一个深度缓冲，缓冲的值设为背景的深度，依次扫描各个点，如果深度（深度的区间为(-∞,0]）大于当前缓冲的深度就写入，如果小于当前的缓冲深度，则可以认为是被遮挡的部分，就不予以显示</p>
+<p>优化：深度缓冲Z-Buffer可以使用Zb变量减少空间复杂度</p>
 <h3 id="着色"><a href="#着色" class="headerlink" title="着色"></a>着色</h3><p>着色的定义：处理场景中的明暗和颜色</p>
 <p>Phone Shading</p>
 <p>Blinn-Phone</p>
@@ -138,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl7ye7vqf0001hctvauws5rnh" data-title="Computer Graphics" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl80cczcs0002botvbqtv75x5" data-title="Computer Graphics" class="article-share-link">分享</a>
       
       
       
