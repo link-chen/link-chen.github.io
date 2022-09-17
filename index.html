@@ -100,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl80cczcz0008botv8sq1bths" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl85v9ujp0008i8tvhpvq9k8f" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -234,11 +234,12 @@
 <h3 id="static关键词"><a href="#static关键词" class="headerlink" title="static关键词"></a>static关键词</h3><p>static变量存放在全局&#x2F;静态区</p>
 <p>static修饰的变量和函数只能在当前文件中使用</p>
 <p>static修饰的类的方法和变量，可以在没有实例化时使用</p>
+<h3 id="virtual-如何实现运行时多态"><a href="#virtual-如何实现运行时多态" class="headerlink" title="virtual 如何实现运行时多态"></a>virtual 如何实现运行时多态</h3><p>如果一个类中定义了virtual方法，那么对该类调用sizeof，会发现比不带virtual的方法多8字节（64位机器上）。实际上多出来的8字节是一个指针（虚指针），指向虚函数表（存放在常量区）。运行时依据虚指针在虚函数表中查找真正的方法，达到运行时多态，解决了二义性的问题</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl80cczci0000botv4e8f2pob" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl85v9uj60000i8tv15790nu9" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -294,7 +295,9 @@
 <p>7.”LightMode”&#x3D;”ForwardAdd” 附加光照</p>
 <p>​	“LightMode”&#x3D;”ForwardBase” 基础光照</p>
 <p>8.光照衰减和雾效</p>
+<p>​	主要是使用Shadow_COORDS</p>
 <p>9.高级纹理反射效果</p>
+<p>​	3D纹理，samplerCube</p>
 <p>10.高级纹理折射效果</p>
 <p>11.菲尔涅反射</p>
 <p>12.爆炸序列帧动画</p>
@@ -304,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl80cczcw0005botv9uuwh1ve" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl85v9ujj0004i8tv9kxp4z5d" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -390,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl80cczcv0004botva8zq4iqe" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl85v9ujk0005i8tv69kvd6bm" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -477,10 +480,18 @@
 <p>非有序序列的二分查找：局部最小值</p>
 <p>建议联想高数的极值问题</p>
 <h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>用空间换取时间</p>
+<p>1.一维前缀和</p>
 <p>使用一组数组存放前面所有数的和，此后常数时间获取前n个数的和</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;&amp; PreSum(vector&lt;int&gt;&amp; nums)&#123;</span><br><span class="line">	vector&lt;int&gt; arr;</span><br><span class="line">	arr.push_back(nums.size()+1,0);</span><br><span class="line">	for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">		arr[i+1]=arr[i]+nums[i];</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//n个数的前缀和，我们用n+1个数据的数组记录，用于简化一些边界判定的问题</span><br><span class="line">//[l,r]之间的数的和，可以用arr[r]-arr[l-1]快速求得</span><br><span class="line">vector&lt;int&gt;&amp; PreSum(vector&lt;int&gt;&amp; nums)&#123;</span><br><span class="line">	vector&lt;int&gt; arr;</span><br><span class="line">	arr.push_back(nums.size()+1,0);</span><br><span class="line">	for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">		arr[i+1]=arr[i]+nums[i];</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>在图的算法中很有用</p>
+<p>2.二维前缀和</p>
+<p>与一维前缀和相同，我们在每一个方向上，多记录一个初始值，简化边界判定</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>构建一个数组，使其和为某一个数，即与前缀和相反</p>
+<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>在图的算法中很有用</p>
 <p>每个节点初始阶段，其顶层节点均为自身，依靠节点是否拥有共同的顶层节点排定是否在同一个集合内</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class DisjoinSet&#123;</span><br><span class="line">	private:</span><br><span class="line">		unordered_map&lt;int,in&gt; disjoinset;</span><br><span class="line">	public:</span><br><span class="line">		void Init(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">			for(int &amp;num:arr)&#123;</span><br><span class="line">				disjoinset[num]=num;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		void Add(int num)&#123;</span><br><span class="line">			disjoinset[num]=num;</span><br><span class="line">		&#125;</span><br><span class="line">		bool FindTheSame(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return true;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		void Merge(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return;</span><br><span class="line">			disjoinset[b]=disjoinset[a];//b挂在a的顶层节点下</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -503,19 +514,19 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int x;//提取x的最左侧的1</span><br><span class="line">int n=1;</span><br><span class="line">int pos=0;</span><br><span class="line">while(x)&#123;</span><br><span class="line">	if(x&amp;n)</span><br><span class="line">		break;</span><br><span class="line">	pos++;</span><br><span class="line">	x=x&gt;&gt;1;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;pos;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>提取最右侧的1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void findOne(int num)&#123;</span><br><span class="line">	int res=0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void findOne(int num)&#123;</span><br><span class="line">	int rightone=num&amp;(~num+1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>数组中只有一个数出现奇数次，其他数出现偶数次，求这个数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int findNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int res=arr[0];</span><br><span class="line">	for(int i=1;i&lt;arr.size();i++)</span><br><span class="line">		res^=arr[i];</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>数组中有两个数出现了奇数次，其他数均出现偶数次，求这两个数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//1哈希表</span><br><span class="line">//位运算技巧</span><br><span class="line">pair&lt;int,int&gt; findTwoNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int res=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		res^=arr[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//1哈希表</span><br><span class="line">//位运算技巧</span><br><span class="line">pair&lt;int,int&gt; findTwoNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int eor=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		eor^=arr[i];</span><br><span class="line">	int rightone=eor&amp;(~eor+1);</span><br><span class="line">	int onlyone=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		if(arr[i]&amp;rightone)</span><br><span class="line">			onlyone^=arr[i];</span><br><span class="line">	return pair&lt;int,int&gt;(onlyone,eor^onlyone0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl80cczcu0003botv3dxt50c4" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl85v9uji0003i8tv3hzu5s13" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -557,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl80cczcy0007botvb3wjesen" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl85v9ujn0006i8tv59826mxv" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
@@ -614,7 +625,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl80cczcq0001botvgkilegep" data-title="Computer Internet" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl85v9uje0001i8tvdoaa7eg0" data-title="Computer Internet" class="article-share-link">分享</a>
       
       
       
@@ -697,7 +708,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl80cczcs0002botvbqtv75x5" data-title="Computer Graphics" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl85v9ujh0002i8tvgw8i14ee" data-title="Computer Graphics" class="article-share-link">分享</a>
       
       
       
@@ -736,7 +747,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl80cczcx0006botvc705781f" data-title="去码头整点薯条" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl85v9ujo0007i8tv9osh639d" data-title="去码头整点薯条" class="article-share-link">分享</a>
       
       
       
