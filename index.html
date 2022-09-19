@@ -100,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl88sicyq000778tveuhf9k21" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl88xbxud0008ectv707b0kmu" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -243,11 +243,13 @@
 
 
 
-<h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3>
+<h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3><p>友元函数，不是一个类的成员函数，但是可以直接访问该类的私有成员</p>
+<p>友元类，被定义为友元类的实例对象，可以直接访问该类的私有成员函数和成员变量</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl88sicy8000078tv7iwmeauq" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl88xbxtr0000ectvdoi24lfd" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -315,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl88sicyo000578tv8g752fpi" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl88xbxua0005ectv5e5dh1a3" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -401,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl88sicyl000478tvb91ih8vv" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl88xbxu70004ectv5765704z" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -532,11 +534,13 @@
 </ol>
 <h3 id="双指针技巧"><a href="#双指针技巧" class="headerlink" title="双指针技巧"></a>双指针技巧</h3><p>诸如二分查找，归并排序，快速排序等算法，广义上也是双指针的一种</p>
 <p>1.快慢指针</p>
+<p>2.对撞指针</p>
+<p>3.滑动窗口</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl88sicyk000378tv75h95drp" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl88xbxu60003ectv8his94by" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -578,7 +582,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl88sicyp000678tvd00l7lfm" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl88xbxub0006ectv6x2ddaz1" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
@@ -620,7 +624,11 @@
 <p>3.CSMA&#x2F;CD 载波侦听多点接入碰撞检测（信道为空就发送，否则等一段时间再来，直到尝试到一定次数后放弃）</p>
 <p>4.CSMA&#x2F;CA ……碰撞避免</p>
 <h4 id="网络层："><a href="#网络层：" class="headerlink" title="网络层："></a>网络层：</h4><p>实现两个端到端的数据传送，寻址+路由选择<br>设备：路由器（一个路由器分隔一个广播域，网络层以上的设备都是网关）<br>协议（IP,ICMP,ARP）<br>IP:IP地址头20字节，其中4字节为版本号等，标志位MF&#x3D;1时后续有分片，MF&#x3D;0后续无分片。DF&#x3D;0时允许分片，DF&#x3D;1时不允许分片<br>ICMP:ping会调用ICMP协议，会告知目标端的一些错误（原点不可达，路由改变等）<br>ARP:通过广播，发送包含目标设备的IP地址的数据包，请求获取其MAC地址。当对应设备收到该数据包后，便会向ARP请求方返回一个包含MAC地址的数据包</p>
-<h5 id="路由选择："><a href="#路由选择：" class="headerlink" title="路由选择："></a>路由选择：</h5><h5 id="IP地址类型："><a href="#IP地址类型：" class="headerlink" title="IP地址类型："></a>IP地址类型：</h5><p>​    A类 0开头<br>​    B类 10<br>​    C类 110<br>​    D类 1110 组播地址<br>​    E类 1111 保留地址</p>
+<h5 id="路由选择："><a href="#路由选择：" class="headerlink" title="路由选择："></a>路由选择：</h5><p>LAN：局域网</p>
+<p>VLAN：虚拟局域网</p>
+<p>WLAN：无线局域网</p>
+<p>WAN：广域网</p>
+<h5 id="IP地址类型："><a href="#IP地址类型：" class="headerlink" title="IP地址类型："></a>IP地址类型：</h5><p>​    A类 0开头<br>​    B类 10<br>​    C类 110<br>​    D类 1110 组播地址<br>​    E类 1111 保留地址</p>
 <h5 id="私有地址段："><a href="#私有地址段：" class="headerlink" title="私有地址段："></a>私有地址段：</h5><p>​    10.0.0.0&#x2F;8   172.16.0.0&#x2F;12   192.168.0.0&#x2F;16<br>​    127.0.0.1是本地地址<br>子网掩码（一串1和一串0组成）与网络号和主机号的关系：<br>​    IP地址和子网掩码按位与得到网络号<br>路由选择算法：</p>
 <h5 id="传输层："><a href="#传输层：" class="headerlink" title="传输层："></a>传输层：</h5><p>​    补充一个socket&#x3D;{IP,端口号}<br>​    设备：网关（传输层及以上均为网关）<br>​    协议：TCP，UDP<br>​    UDP：头部8字节（16源端口号+16位目的端口号+16位UDP长度+16位校验和）,提供无连接，不可靠的数据传输服务。速度快，但不可靠，不能保证顺序，不能保证数据无丢失，可以用于广播<br>​    TCP: 头部20字节，提供面向连接的，可靠的，面向字节留的数据传输服务，（只能一对一的服务），慢<br>​    ##### TCP三次握手和四次挥手（此处应该有图片）<br>​    	握手:客户端发送（SYN&#x3D;1,seq&#x3D;x）,服务器收到后向主机回复（SYN&#x3D;1,Ack&#x3D;x+1,seq&#x3D;y）,客户端接受后发送（Ack&#x3D;y+1,seq&#x3D;z）<br>​	挥手:客户端发送（FIN&#x3D;1,seq&#x3D;x）,服务器收到后回复（Ack&#x3D;x+1,seq&#x3D;y）,服务器向客户端发送（FIN&#x3D;1，Ack&#x3D;x，seq&#x3D;y）,客户端发送（Ack&#x3D;y+1，seq&#x3D;z）<br>​    TCP传输中，接收到一个末尾为seq&#x3D;x时，反馈的Ack&#x3D;x+1</p>
 <h5 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h5><p>1.什么是拥塞控制</p>
@@ -641,11 +649,17 @@
 <h5 id="FTP-文件传输协议"><a href="#FTP-文件传输协议" class="headerlink" title="FTP(文件传输协议)"></a>FTP(文件传输协议)</h5><p>使用C&#x2F;S模式，基于TCP协议提供可靠传输服务，一个FTP服务器可以为多个客户端提供服务</p>
 <p>两个端口20，21，即有两个进程(服务器上面)</p>
 <p>21负责控制进程，20负责数据传输</p>
+<h5 id="DNS协议"><a href="#DNS协议" class="headerlink" title="DNS协议"></a>DNS协议</h5><p>域名映射，查询域名与ip地址的映射，使用UDP发送</p>
+<p>在域名服务器之间的数据转移时，使用TCP保证可靠传输</p>
+<h5 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h5><p>url，统一资源定位符</p>
+<h5 id="www"><a href="#www" class="headerlink" title="www"></a>www</h5><h5 id="http"><a href="#http" class="headerlink" title="http"></a>http</h5><h5 id="https"><a href="#https" class="headerlink" title="https"></a>https</h5><h5 id="电子邮件相关协议（Pop3，SMTP）"><a href="#电子邮件相关协议（Pop3，SMTP）" class="headerlink" title="电子邮件相关协议（Pop3，SMTP）"></a>电子邮件相关协议（Pop3，SMTP）</h5><p>SMTP负责发</p>
+<p>Pop3负责接收</p>
+<h5 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h5><p>提供IP地址</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl88sicyj000278tv4x967x6x" data-title="Computer Internet" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl88xbxu50002ectvf484327h" data-title="Computer Internet" class="article-share-link">分享</a>
       
       
       
@@ -702,6 +716,9 @@
 <p>反走样的方法：</p>
 <p>1.先模糊，后采样</p>
 <p>2.区域加权采样</p>
+<p>现代的反走样方法</p>
+<p>FXAA</p>
+<p>SMAA</p>
 <h5 id="深度检测算法"><a href="#深度检测算法" class="headerlink" title="深度检测算法"></a>深度检测算法</h5><p>1.画家算法的应用与局限性分析</p>
 <p>时间复杂度O(nlogn)，通过排序之后，得到场景中各个物体的遮挡关系</p>
 <p>缺点：不能处理循环遮挡的问题</p>
@@ -728,7 +745,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl88sicyg000178tvb7vv1v5w" data-title="Computer Graphics" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl88xbxu10001ectvbxe92vjx" data-title="Computer Graphics" class="article-share-link">分享</a>
       
       
       
@@ -767,7 +784,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl88sicyr000878tv3wvc1y3u" data-title="去码头整点薯条" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl88xbxuc0007ectvhx0b46b2" data-title="去码头整点薯条" class="article-share-link">分享</a>
       
       
       
