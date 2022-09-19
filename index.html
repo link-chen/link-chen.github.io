@@ -100,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl85v9ujp0008i8tvhpvq9k8f" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl88sicyq000778tveuhf9k21" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -235,11 +235,19 @@
 <p>static修饰的变量和函数只能在当前文件中使用</p>
 <p>static修饰的类的方法和变量，可以在没有实例化时使用</p>
 <h3 id="virtual-如何实现运行时多态"><a href="#virtual-如何实现运行时多态" class="headerlink" title="virtual 如何实现运行时多态"></a>virtual 如何实现运行时多态</h3><p>如果一个类中定义了virtual方法，那么对该类调用sizeof，会发现比不带virtual的方法多8字节（64位机器上）。实际上多出来的8字节是一个指针（虚指针），指向虚函数表（存放在常量区）。运行时依据虚指针在虚函数表中查找真正的方法，达到运行时多态，解决了二义性的问题</p>
+<h3 id="运算符重载相关"><a href="#运算符重载相关" class="headerlink" title="运算符重载相关"></a>运算符重载相关</h3><p>只能是类的成员函数或者友元</p>
+<p>结构</p>
+<p>返回值类型 operator 被重载的运算符 （参数1，参数2）</p>
+<p>example 重载 *</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//作为非成员函数时</span><br><span class="line">friend vector2D* operator * (int muiti,vector2D* v)&#123;</span><br><span class="line">	return new vector2D(v.x*muiti,v.y*muiti);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl85v9uj60000i8tv15790nu9" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl88sicy8000078tv7iwmeauq" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -307,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl85v9ujj0004i8tv9kxp4z5d" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl88sicyo000578tv8g752fpi" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -393,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl85v9ujk0005i8tv69kvd6bm" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl88sicyl000478tvb91ih8vv" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -522,11 +530,13 @@
 <li><p>数组中有两个数出现了奇数次，其他数均出现偶数次，求这两个数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//1哈希表</span><br><span class="line">//位运算技巧</span><br><span class="line">pair&lt;int,int&gt; findTwoNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int eor=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		eor^=arr[i];</span><br><span class="line">	int rightone=eor&amp;(~eor+1);</span><br><span class="line">	int onlyone=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		if(arr[i]&amp;rightone)</span><br><span class="line">			onlyone^=arr[i];</span><br><span class="line">	return pair&lt;int,int&gt;(onlyone,eor^onlyone0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
+<h3 id="双指针技巧"><a href="#双指针技巧" class="headerlink" title="双指针技巧"></a>双指针技巧</h3><p>诸如二分查找，归并排序，快速排序等算法，广义上也是双指针的一种</p>
+<p>1.快慢指针</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl85v9uji0003i8tv3hzu5s13" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl88sicyk000378tv75h95drp" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -568,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl85v9ujn0006i8tv59826mxv" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl88sicyp000678tvd00l7lfm" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
@@ -616,16 +626,26 @@
 <h5 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h5><p>1.什么是拥塞控制</p>
 <p>​		在网络中发生拥塞时，减少向网络中发送数据的速度，防止造成恶性循环，在网络空闲时提高发送数据的速度提高发送数据的速率，最大限度的利用网络资源</p>
 <p>2.TCP的拥塞控制方法</p>
-<p>​	1）TCP滑动窗口</p>
+<p>​	1）TCP滑动窗口(cwnd)</p>
 <p>​		TCP不同于UDP发送的是一个个数据段，采用流水线的方式（渲染管线有端联想）。TCP维护一个发送窗口来发送数据，这个窗口就是一个区间。在窗口内的数据会被一次性发送，不需要等待之前发送的数据段被确认，当最早发送出的数据段被确认，窗口就会向前移动。未收到按顺序确认的序列号的话，窗口仅会移动到有序确认的最后一个序列号的位置。</p>
 <p>​	2）慢启动</p>
+<p>​	开始时令cwnd&#x3D;1，以后每接受一个确认后，使cwnd翻倍</p>
 <p>​	3）拥塞避免</p>
-<p>​	4）快速恢复</p>
+<p>​	开始时令cwnd&#x3D;1，此后每接受确认一次后，使cwnd++</p>
+<p>​		拥塞处理，开始满开始，达到阈值（ssthresh）后使用拥塞避免，cwnd++。在遇到拥塞后，ssthresh减半，cwnd置1，使用拥塞避免。注意cwnd达到sstresh后，如果没发生拥塞，sstresh与cwnd一同增大</p>
+<p>​	4）快重传</p>
+<p>​	发送方收到三个相同的ack之后，直接超时重传，不等定时器到超时的时间</p>
+<p>​	5）快恢复</p>
+<p>​	ssthres减半，cwnd直接减半，使用拥塞避免算法</p>
+<h3 id="应用层（给老子好好背住）"><a href="#应用层（给老子好好背住）" class="headerlink" title="应用层（给老子好好背住）"></a>应用层（给老子好好背住）</h3><p>C&#x2F;S模型和P2P模型（C&#x2F;S有中心，P2P没有中心）</p>
+<h5 id="FTP-文件传输协议"><a href="#FTP-文件传输协议" class="headerlink" title="FTP(文件传输协议)"></a>FTP(文件传输协议)</h5><p>使用C&#x2F;S模式，基于TCP协议提供可靠传输服务，一个FTP服务器可以为多个客户端提供服务</p>
+<p>两个端口20，21，即有两个进程(服务器上面)</p>
+<p>21负责控制进程，20负责数据传输</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl85v9uje0001i8tvdoaa7eg0" data-title="Computer Internet" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl88sicyj000278tv4x967x6x" data-title="Computer Internet" class="article-share-link">分享</a>
       
       
       
@@ -708,7 +728,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl85v9ujh0002i8tvgw8i14ee" data-title="Computer Graphics" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl88sicyg000178tvb7vv1v5w" data-title="Computer Graphics" class="article-share-link">分享</a>
       
       
       
@@ -747,7 +767,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl85v9ujo0007i8tv9osh639d" data-title="去码头整点薯条" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl88sicyr000878tv3wvc1y3u" data-title="去码头整点薯条" class="article-share-link">分享</a>
       
       
       

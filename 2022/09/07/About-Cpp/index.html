@@ -14,7 +14,7 @@
 <meta property="og:description" content="C++各个基本变量的大小（64位）单位均位Byte    1Byte&#x3D;8bit int 4,float 4,long 4,double 8,char 1,short 2,bool 1 任意类型的指针8（指针存储的是一个地址，64位机的地址64bit&#x3D;8Byte） 引用和指针的区别引用是一个变量的别名不是实体故不能独立存在，在使用引用时必须初始化，而指针不需要初始化 exampl">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-07T14:56:23.000Z">
-<meta property="article:modified_time" content="2022-09-14T15:23:05.341Z">
+<meta property="article:modified_time" content="2022-09-18T06:30:21.874Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -196,11 +196,19 @@
 <p>static修饰的变量和函数只能在当前文件中使用</p>
 <p>static修饰的类的方法和变量，可以在没有实例化时使用</p>
 <h3 id="virtual-如何实现运行时多态"><a href="#virtual-如何实现运行时多态" class="headerlink" title="virtual 如何实现运行时多态"></a>virtual 如何实现运行时多态</h3><p>如果一个类中定义了virtual方法，那么对该类调用sizeof，会发现比不带virtual的方法多8字节（64位机器上）。实际上多出来的8字节是一个指针（虚指针），指向虚函数表（存放在常量区）。运行时依据虚指针在虚函数表中查找真正的方法，达到运行时多态，解决了二义性的问题</p>
+<h3 id="运算符重载相关"><a href="#运算符重载相关" class="headerlink" title="运算符重载相关"></a>运算符重载相关</h3><p>只能是类的成员函数或者友元</p>
+<p>结构</p>
+<p>返回值类型 operator 被重载的运算符 （参数1，参数2）</p>
+<p>example 重载 *</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//作为非成员函数时</span><br><span class="line">friend vector2D* operator * (int muiti,vector2D* v)&#123;</span><br><span class="line">	return new vector2D(v.x*muiti,v.y*muiti);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl85v9uj60000i8tv15790nu9" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl88sicy8000078tv7iwmeauq" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       

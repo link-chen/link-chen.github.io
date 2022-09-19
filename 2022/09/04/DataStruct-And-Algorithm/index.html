@@ -14,7 +14,7 @@
 <meta property="og:description" content="快速排序快速排序原理：选取一个pivote，作为标杆，将小于该数的数放在pivote前，大于该数的放在pivote后面 不断划分两个区间，左侧为小于该数的，右侧为大于该数的 直到左右两个区间不再存在时，此时数组已经有序 时间复杂度O(nlogn)，是不稳定排序 123456789101112131415&#x2F;&#x2F;输入的r应该是nums.size()-1void QuickSort(vector&lt;i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T15:55:37.000Z">
-<meta property="article:modified_time" content="2022-09-17T12:02:17.582Z">
+<meta property="article:modified_time" content="2022-09-18T03:33:53.990Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -190,11 +190,13 @@
 <li><p>数组中有两个数出现了奇数次，其他数均出现偶数次，求这两个数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//1哈希表</span><br><span class="line">//位运算技巧</span><br><span class="line">pair&lt;int,int&gt; findTwoNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int eor=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		eor^=arr[i];</span><br><span class="line">	int rightone=eor&amp;(~eor+1);</span><br><span class="line">	int onlyone=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		if(arr[i]&amp;rightone)</span><br><span class="line">			onlyone^=arr[i];</span><br><span class="line">	return pair&lt;int,int&gt;(onlyone,eor^onlyone0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
+<h3 id="双指针技巧"><a href="#双指针技巧" class="headerlink" title="双指针技巧"></a>双指针技巧</h3><p>诸如二分查找，归并排序，快速排序等算法，广义上也是双指针的一种</p>
+<p>1.快慢指针</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl85v9uji0003i8tv3hzu5s13" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl88sicyk000378tv75h95drp" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
