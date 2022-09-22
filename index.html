@@ -98,7 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8aby9z10005d8tv5cz7fbue" data-title="UE的那些事儿" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8d86cjj0006uotvdvuu8t79" data-title="UE的那些事儿" class="article-share-link">分享</a>
       
       
       
@@ -157,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8aby9z00004d8tvhgpeeu30" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8d86cji0004uotv03k68htt" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -198,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8aby9z4000ad8tvcb4m1141" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8d86cjm000auotvgij9dqsx" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -348,11 +348,17 @@
 
 <h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3><p>友元函数，不是一个类的成员函数，但是可以直接访问该类的私有成员</p>
 <p>友元类，被定义为友元类的实例对象，可以直接访问该类的私有成员函数和成员变量</p>
+<h3 id="内存对齐"><a href="#内存对齐" class="headerlink" title="内存对齐"></a>内存对齐</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//32位系统</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">struct&#123;</span><br><span class="line">    int x;</span><br><span class="line">    char y;</span><br><span class="line">&#125;s;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%d\n&quot;,sizeof(s);  // 输出8</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从第一个属性开始，从0开始计算偏移量</p>
+<p>第二个和之后的属性要放在该属性的大小与对齐模数 取小值的整数倍上</p>
+<p>当所有属性都计算完毕后，整体做二次偏移</p>
+<p>将计算的结果扩充到整个结构体中最大数据类型与对齐模数 取小的值的整数倍</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8aby9ys0000d8tvcjibdczf" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8d86cj90000uotv2fqfg4p5" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -420,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8aby9z20008d8tvh9f724ck" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8d86cjk0007uotv9p2m90mp" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -506,7 +512,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8aby9z20007d8tv1nb7hbyq" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8d86cjj0005uotvg5eialkf" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -643,7 +649,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8aby9yy0002d8tv0m991bwn" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8d86cjh0003uotv5jrn3cga" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -685,7 +691,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8aby9z10006d8tvgcc2e50d" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8d86cjl0008uotv15a0e63j" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
@@ -789,7 +795,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl8aby9yz0003d8tve1fw99cb" data-title="Computer Internet" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl8d86cjg0002uotv0t7mdbci" data-title="Computer Internet" class="article-share-link">分享</a>
       
       
       
@@ -875,7 +881,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl8aby9yx0001d8tv01ycb1n0" data-title="Computer Graphics" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl8d86cjf0001uotvgamf1vm3" data-title="Computer Graphics" class="article-share-link">分享</a>
       
       
       
