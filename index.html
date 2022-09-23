@@ -71,6 +71,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Unreal-Engine-Material" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/23/Unreal-Engine-Material/" class="article-date">
+  <time class="dt-published" datetime="2022-09-23T02:52:21.000Z" itemprop="datePublished">2022-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/23/Unreal-Engine-Material/">Unreal Engine Material</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是PBR"><a href="#什么是PBR" class="headerlink" title="什么是PBR"></a>什么是PBR</h3><p>Physical Based Rendering，即基于物理的渲染</p>
+<p>Shader一般是基于HLSL，之后引擎会对齐进行交叉编译，到目标平台</p>
+<p>材质编辑器的组成（表达式网络+基础材质）</p>
+<p>​																	   （表达式网络）</p>
+<p><img src="/2022/09/23/Unreal-Engine-Material/image-20220923105855848.png"></p>
+<p>​																		（基础材质）</p>
+<p><img src="/2022/09/23/Unreal-Engine-Material/image-20220923110053438.png" alt="image-20220923110053438"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8enxepd0007uotvaxonc0dz" data-title="Unreal Engine Material" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-UE的那些事儿" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" class="article-date">
@@ -98,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8d86cjj0006uotvdvuu8t79" data-title="UE的那些事儿" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8enxepb0005uotvehnj44nv" data-title="UE的那些事儿" class="article-share-link">分享</a>
       
       
       
@@ -151,13 +196,40 @@
 <p>（3）高相应比</p>
 <p>（4）先来先服务</p>
 <p>（5）优先级调度</p>
+<p>线程的同步和互斥方法</p>
+<p>1.信号量</p>
+<p>2.锁（互斥锁和读写锁）</p>
+<p>3.条件变量</p>
 <p>死锁的必要条件</p>
 <p>不可剥夺，互斥访问，条件保持，循环等待</p>
-
+<p>银行家算法：最大可分配矩阵，需求矩阵，资源矩阵</p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p>操作系统运行在内存的低地址段，应用程序运行在高地址段</p>
+<p>现代操作系统中，程序可以动态重定位装入内存中（主要是应用了程序的局部性原理cache缓存）</p>
+<p>内存的分配方式：动态分区分配，非连续性内存分配</p>
+<h5 id="动态分区分配"><a href="#动态分区分配" class="headerlink" title="动态分区分配"></a>动态分区分配</h5><p>1.首次适应算法：地址升序，找第一个符合需求的内存区域</p>
+<p>2.最佳适应算法：内存大小升序，找第一个符合需求的内存区域</p>
+<p>3.最差适应算法：内存大小降序，找第一个符合需求的内存区域</p>
+<p>4.邻次适应算法：地址升序，从上一次分配的区域开始，找第一个符合需求的内存区域</p>
+<h5 id="非连续性分配方式"><a href="#非连续性分配方式" class="headerlink" title="非连续性分配方式"></a>非连续性分配方式</h5><p>1.分页</p>
+<p>​	每一个页都是固定大小的，地址由页号+页内偏移量组成</p>
+<p>​	通过每个地址内的页号在页表内找到该页的对应物理块，然后块数*每块大小+页内偏移量&#x3D;真实在内存中的地址。如果没有在页表内找到对应的页号，则发生缺页中断</p>
+<p>​	二级页表</p>
+<p>2.分段</p>
+<p>​	段号+段内偏移量，段号长度和段内偏移量都不定长</p>
+<p>​	依据段号查段表，找到段基址，基址+段内偏移量&#x3D;内存实际地址</p>
+<p>3.段页式内存管理</p>
+<h5 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h5><p>1.OPT(最佳置换算法)，不切实际但确实是最好的方法（因为不能预测未来的情况）</p>
+<p>2.FIFO，会出现贝拉德异常（即可放置页面的内存增加，缺页异常反而增加的情况）</p>
+<p>3.LRU，将最久没有使用的页面置换出去</p>
+<p>4.CLOCK置换算法</p>
+<h5 id="抖动"><a href="#抖动" class="headerlink" title="抖动"></a>抖动</h5><p>即频繁的发生缺页异常的现象</p>
+<h5 id="工作集"><a href="#工作集" class="headerlink" title="工作集"></a>工作集</h5><p>进程在内存中的页面</p>
+<h5 id="驻留集"><a href="#驻留集" class="headerlink" title="驻留集"></a>驻留集</h5><p>给和一个进程分配的物理页框的集合</p>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><h3 id="输入输出管理"><a href="#输入输出管理" class="headerlink" title="输入输出管理"></a>输入输出管理</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8d86cji0004uotv03k68htt" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8enxepa0004uotv4sn4axo7" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -198,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8d86cjm000auotvgij9dqsx" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8enxepq000buotv4dzu70ed" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -358,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8d86cj90000uotv2fqfg4p5" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8enxeot0000uotv54a80s9r" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -426,7 +498,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8d86cjk0007uotv9p2m90mp" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8enxepe0008uotv1hhj1lle" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -512,7 +584,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8d86cjj0005uotvg5eialkf" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8enxepc0006uotv2oklda6d" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -649,7 +721,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8d86cjh0003uotv5jrn3cga" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8enxep40001uotve9j2hg8j" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -691,7 +763,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8d86cjl0008uotv15a0e63j" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8enxepn0009uotv3gpx0o9v" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
@@ -795,93 +867,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl8d86cjg0002uotv0t7mdbci" data-title="Computer Internet" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Computer-Graphics" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/09/04/Computer-Graphics/" class="article-date">
-  <time class="dt-published" datetime="2022-09-04T15:53:36.000Z" itemprop="datePublished">2022-09-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/09/04/Computer-Graphics/">Computer Graphics</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="如何判定一个游戏画面质量的高低？"><a href="#如何判定一个游戏画面质量的高低？" class="headerlink" title="如何判定一个游戏画面质量的高低？"></a>如何判定一个游戏画面质量的高低？</h2><p>画面越亮质量越高<br>why：越亮画面细节（建模细节，着色上的考量等等）越容易看到，所以制作的越好的游戏才会使场景越亮(可以见一些)</p>
-<h2 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h2><p>1.向量vector：一个既有大小又有方向的量（头上带箭头）<br>  A(x1,y1),B(x2,y2),向量 AB&#x3D;B-A&#x3D;(x2,y2)-(x1,y1),易得向量AB!&#x3D;向量BA<br>  向量数量积：$\vec{a}\vec{b}$&#x3D;|$\vec{a}$||$\vec{b}$|cos$\alpha$<br>  向量积：|$\vec{a}$x$\vec{b}$|&#x3D;|$\vec{a}$||$\vec{b}$|sin$\alpha$</p>
-<p>  齐次坐标A(x0,y0)，引入齐次坐标后-&gt;A(x0,y0,1)</p>
-<p>  此后包括平移在内的变换均被统一为线性变换</p>
-<p>2.判定点是否在三角形内部</p>
-<p>​	1）基向量法</p>
-<p>​	2）向量的向量积</p>
-<p>3.什么是MVP变换</p>
-<p>​	1）M 模型变换，用于解决模型怎么摆放的问题</p>
-<p>​	2）V  视图变换，用于解决摄像机位置和方向问题</p>
-<p>​    3）P  投影变换，模型被映射到摄像机上（正交投影和透视投影）</p>
-<p>4.模型变换</p>
-<p>​	1）缩放</p>
-<p>​	2）平移</p>
-<p>​	3）旋转</p>
-<p>​	4）仿射（依托于缩放，平移和旋转）</p>
-<h3 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h3><p>光栅（grating）设备可以直接理解为显示器</p>
-<p>从mvp矩阵后得到的坐标矩阵转换到最终的屏幕空间</p>
-<h5 id="光栅化矩阵："><a href="#光栅化矩阵：" class="headerlink" title="光栅化矩阵："></a>光栅化矩阵：</h5><p>[[width&#x2F;2,0,0,width&#x2F;2],[0,height&#x2F;2,0,height&#x2F;2],[0,0,1,0]],[0,0,0,1]]</p>
-<h5 id="走样的原因以及反走样："><a href="#走样的原因以及反走样：" class="headerlink" title="走样的原因以及反走样："></a>走样的原因以及反走样：</h5><p>根本原因是因为采样频率跟不上信号变化频率</p>
-<p>反走样的方法：</p>
-<p>1.先模糊，后采样</p>
-<p>2.区域加权采样</p>
-<p>现代的反走样方法</p>
-<p>FXAA</p>
-<p>SMAA</p>
-<h5 id="深度检测算法"><a href="#深度检测算法" class="headerlink" title="深度检测算法"></a>深度检测算法</h5><p>1.画家算法的应用与局限性分析</p>
-<p>时间复杂度O(nlogn)，通过排序之后，得到场景中各个物体的遮挡关系</p>
-<p>缺点：不能处理循环遮挡的问题</p>
-<p>2.Z-Buffer算法的原理及其应用与优化方法</p>
-<p>原理：使用一个深度缓冲，缓冲的值设为背景的深度，依次扫描各个点，如果深度（深度的区间为(-∞,0]）大于当前缓冲的深度就写入，如果小于当前的缓冲深度，则可以认为是被遮挡的部分，就不予以显示</p>
-<p>优化：深度缓冲Z-Buffer可以使用Zb变量减少空间复杂度</p>
-<h3 id="着色"><a href="#着色" class="headerlink" title="着色"></a>着色</h3><p>着色的定义：处理场景中的明暗和颜色</p>
-<p>Phone Shading</p>
-<p>Blinn-Phone</p>
-<h5 id="贴图，纹理与材质的关系"><a href="#贴图，纹理与材质的关系" class="headerlink" title="贴图，纹理与材质的关系"></a>贴图，纹理与材质的关系</h5><p>贴图就是一张图</p>
-<p>纹理使物体表面的特性，细节，大多数时候可以使用贴图来描绘</p>
-<p>材质是纹理+光照模型</p>
-<h3 id="几何造型技术"><a href="#几何造型技术" class="headerlink" title="几何造型技术"></a>几何造型技术</h3><p>显式：可以直接看到是什么几何图形，点云，多边形面等</p>
-<p>隐式：不能直接看出是什么图形，但很容易判定某一个点是否在该集合图形上（贝塞尔曲线，B样条线等）</p>
-<h5 id="常见的隐式技术"><a href="#常见的隐式技术" class="headerlink" title="常见的隐式技术"></a>常见的隐式技术</h5><p>1.贝塞尔曲线</p>
-<p>2.B样条线</p>
-<p>3.距离函数</p>
-<p>4.构造几何体、</p>
-<p>5.分型</p>
-<h5 id="常见的显式技术"><a href="#常见的显式技术" class="headerlink" title="常见的显式技术"></a>常见的显式技术</h5><p>1.点云</p>
-<p>2.多边形面</p>
-<h3 id="光线追踪"><a href="#光线追踪" class="headerlink" title="光线追踪"></a>光线追踪</h3><p>附一个markdown的内部指令集：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42782150/article/details/104878759">https://blog.csdn.net/weixin_42782150/article/details/104878759</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl8d86cjf0001uotvgamf1vm3" data-title="Computer Graphics" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl8enxep70002uotv1ccvgpvf" data-title="Computer Internet" class="article-share-link">分享</a>
       
       
       
@@ -929,6 +915,10 @@
       <ul>
         
           <li>
+            <a href="/2022/09/23/Unreal-Engine-Material/">Unreal Engine Material</a>
+          </li>
+        
+          <li>
             <a href="/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">UE的那些事儿</a>
           </li>
         
@@ -942,10 +932,6 @@
         
           <li>
             <a href="/2022/09/07/About-Cpp/">About Cpp</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/UnityShader-Practice/">UnityShader Practice</a>
           </li>
         
       </ul>

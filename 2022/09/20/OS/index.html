@@ -14,7 +14,7 @@
 <meta property="og:description" content="操作系统是什么是一套软件，运行再应用软件和硬件之间的软件，用于管理计算机的资源。 操作系统管理的资源有哪些处理器，内存，文件，输入输出 操作系统发展阶段：无操作系统，批处理系统，分时操作系统，实时操作系统，互联网阶段的操作系统 处理器管理进程与线程：进程是程序运行的一次动态运行，用进程控制块PCB唯一标识一个进程。进程由PCB，数据段，代码段共同组成。进程是资源分配的单位，一个进程中可以有多个线程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-20T13:09:27.000Z">
-<meta property="article:modified_time" content="2022-09-20T13:26:21.570Z">
+<meta property="article:modified_time" content="2022-09-23T15:53:04.769Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -114,13 +114,40 @@
 <p>（3）高相应比</p>
 <p>（4）先来先服务</p>
 <p>（5）优先级调度</p>
+<p>线程的同步和互斥方法</p>
+<p>1.信号量</p>
+<p>2.锁（互斥锁和读写锁）</p>
+<p>3.条件变量</p>
 <p>死锁的必要条件</p>
 <p>不可剥夺，互斥访问，条件保持，循环等待</p>
-
+<p>银行家算法：最大可分配矩阵，需求矩阵，资源矩阵</p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p>操作系统运行在内存的低地址段，应用程序运行在高地址段</p>
+<p>现代操作系统中，程序可以动态重定位装入内存中（主要是应用了程序的局部性原理cache缓存）</p>
+<p>内存的分配方式：动态分区分配，非连续性内存分配</p>
+<h5 id="动态分区分配"><a href="#动态分区分配" class="headerlink" title="动态分区分配"></a>动态分区分配</h5><p>1.首次适应算法：地址升序，找第一个符合需求的内存区域</p>
+<p>2.最佳适应算法：内存大小升序，找第一个符合需求的内存区域</p>
+<p>3.最差适应算法：内存大小降序，找第一个符合需求的内存区域</p>
+<p>4.邻次适应算法：地址升序，从上一次分配的区域开始，找第一个符合需求的内存区域</p>
+<h5 id="非连续性分配方式"><a href="#非连续性分配方式" class="headerlink" title="非连续性分配方式"></a>非连续性分配方式</h5><p>1.分页</p>
+<p>​	每一个页都是固定大小的，地址由页号+页内偏移量组成</p>
+<p>​	通过每个地址内的页号在页表内找到该页的对应物理块，然后块数*每块大小+页内偏移量&#x3D;真实在内存中的地址。如果没有在页表内找到对应的页号，则发生缺页中断</p>
+<p>​	二级页表</p>
+<p>2.分段</p>
+<p>​	段号+段内偏移量，段号长度和段内偏移量都不定长</p>
+<p>​	依据段号查段表，找到段基址，基址+段内偏移量&#x3D;内存实际地址</p>
+<p>3.段页式内存管理</p>
+<h5 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h5><p>1.OPT(最佳置换算法)，不切实际但确实是最好的方法（因为不能预测未来的情况）</p>
+<p>2.FIFO，会出现贝拉德异常（即可放置页面的内存增加，缺页异常反而增加的情况）</p>
+<p>3.LRU，将最久没有使用的页面置换出去</p>
+<p>4.CLOCK置换算法</p>
+<h5 id="抖动"><a href="#抖动" class="headerlink" title="抖动"></a>抖动</h5><p>即频繁的发生缺页异常的现象</p>
+<h5 id="工作集"><a href="#工作集" class="headerlink" title="工作集"></a>工作集</h5><p>进程在内存中的页面</p>
+<h5 id="驻留集"><a href="#驻留集" class="headerlink" title="驻留集"></a>驻留集</h5><p>给和一个进程分配的物理页框的集合</p>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><h3 id="输入输出管理"><a href="#输入输出管理" class="headerlink" title="输入输出管理"></a>输入输出管理</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8d86cji0004uotv03k68htt" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8enxepa0004uotv4sn4axo7" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -180,6 +207,10 @@
       <ul>
         
           <li>
+            <a href="/2022/09/23/Unreal-Engine-Material/">Unreal Engine Material</a>
+          </li>
+        
+          <li>
             <a href="/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">UE的那些事儿</a>
           </li>
         
@@ -193,10 +224,6 @@
         
           <li>
             <a href="/2022/09/07/About-Cpp/">About Cpp</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/UnityShader-Practice/">UnityShader Practice</a>
           </li>
         
       </ul>
