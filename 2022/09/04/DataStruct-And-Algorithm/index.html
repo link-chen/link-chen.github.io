@@ -14,7 +14,7 @@
 <meta property="og:description" content="快速排序快速排序原理：选取一个pivote，作为标杆，将小于该数的数放在pivote前，大于该数的放在pivote后面 不断划分两个区间，左侧为小于该数的，右侧为大于该数的 直到左右两个区间不再存在时，此时数组已经有序 时间复杂度O(nlogn)~O(n^2)，是不稳定排序 123456789101112131415&#x2F;&#x2F;输入的r应该是nums.size()-1void QuickSort(vect">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T15:55:37.000Z">
-<meta property="article:modified_time" content="2022-09-20T10:28:28.805Z">
+<meta property="article:modified_time" content="2022-09-25T06:33:06.727Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,7 +154,7 @@
 
 <p>2.二维前缀和</p>
 <p>与一维前缀和相同，我们在每一个方向上，多记录一个初始值，简化边界判定</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; <span class="built_in">PreSumTwo</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; nums)&#123;</span><br><span class="line">	vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">preSum</span>(nums.<span class="built_in">size</span>()+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums[<span class="number">0</span>].<span class="built_in">size</span>()+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> preSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -164,7 +164,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class DisjoinSet&#123;</span><br><span class="line">	private:</span><br><span class="line">		unordered_map&lt;int,in&gt; disjoinset;</span><br><span class="line">	public:</span><br><span class="line">		void Init(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">			for(int &amp;num:arr)&#123;</span><br><span class="line">				disjoinset[num]=num;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		void Add(int num)&#123;</span><br><span class="line">			disjoinset[num]=num;</span><br><span class="line">		&#125;</span><br><span class="line">		bool FindTheSame(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return true;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		void Merge(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return;</span><br><span class="line">			disjoinset[b]=disjoinset[a];//b挂在a的顶层节点下</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>在连通域问题，如岛屿数量，岛屿面积等问题上有奇效</p>
-<h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><ol>
+<h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><p>tips:按位与只会的到小于或等于该数的数，即按位与的值是严格递减的</p>
+<ol>
 <li><p>int a,int b;不能使用第三个变量交换a，b</p>
 <p>方法1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=a+b;</span><br><span class="line">b=a-b;</span><br><span class="line">a=a-b;</span><br></pre></td></tr></table></figure>
@@ -192,13 +193,15 @@
 </ol>
 <h3 id="双指针技巧"><a href="#双指针技巧" class="headerlink" title="双指针技巧"></a>双指针技巧</h3><p>诸如二分查找，归并排序，快速排序等算法，广义上也是双指针的一种</p>
 <p>1.快慢指针</p>
+<p>​	删除链表的倒数第n个结点等应用</p>
 <p>2.对撞指针</p>
+<p>​	二分查找本质上也是一种对撞指针</p>
 <p>3.滑动窗口</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8enxep40001uotve9j2hg8j" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8hb42o00003yctv6mvu5ptu" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -258,6 +261,10 @@
       <ul>
         
           <li>
+            <a href="/2022/09/24/leetcode/">leetcode</a>
+          </li>
+        
+          <li>
             <a href="/2022/09/23/Unreal-Engine-Material/">Unreal Engine Material</a>
           </li>
         
@@ -271,10 +278,6 @@
         
           <li>
             <a href="/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/">我永远喜欢宵宫</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/07/About-Cpp/">About Cpp</a>
           </li>
         
       </ul>
