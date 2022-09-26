@@ -14,7 +14,7 @@
 <meta property="og:description" content="自下而上的网络体系结构OSI 7层体系结构：物理层，数据链路层，网络层，传输层，会话层，表示层，应用层TCP&#x2F;IP四层模型：网际接口层，网络层，传输层，应用层TCP&#x2F;IP 网际接口层&#x3D;OSI(物理层+数据链路层)TCP&#x2F;IP 网络层&#x3D;OSI(网络层)TCP&#x2F;IP 传输层&#x3D;OSI(传输层)TCP&#x2F;IP 应用层&#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T15:54:34.000Z">
-<meta property="article:modified_time" content="2022-09-26T03:10:46.744Z">
+<meta property="article:modified_time" content="2022-09-26T03:23:01.896Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -108,8 +108,12 @@
 <p>实现两个端到端的数据传送，寻址+路由选择<br>设备：路由器（一个路由器分隔一个广播域，网络层以上的设备都是网关）<br>协议（IP,ICMP,ARP）<br>IP:IP地址头20字节，其中4字节为版本号等，标志位MF&#x3D;1时后续有分片，MF&#x3D;0后续无分片。DF&#x3D;0时允许分片，DF&#x3D;1时不允许分片<br>ICMP:ping会调用ICMP协议，会告知目标端的一些错误（原点不可达，路由改变等）<br>ARP:通过广播，发送包含目标设备的IP地址的数据包，请求获取其MAC地址。当对应设备收到该数据包后，便会向ARP请求方返回一个包含MAC地址的数据包</p>
 <h5 id="路由选择："><a href="#路由选择：" class="headerlink" title="路由选择："></a>路由选择：</h5><p>IGP：内部网关协议RIP，OSPF</p>
 <p>EGP：外部网关协议BGP</p>
-<p>RIP协议：</p>
-<p>OSPF协议：</p>
+<p>RIP协议：使用距离-向量路由算法</p>
+<p>所有结点定期将他们的路由选择表（路径目的地+代价）传输给相邻的结点。RIP使用跳数作为距离的度量</p>
+<p>一条路径最多只能包含15个路由器，超过15跳认为不可达</p>
+<p>接收相邻节点的信息后将对应的下一跳设置为相邻节点，此后将距离设置为相邻节点到目标节点的距离+1</p>
+<p>RIP报文信息为&lt;目标网络，距离，下一跳地址&gt;</p>
+<p>OSPF协议：链路状态路由算法</p>
 <p>BGP协议：</p>
 <p>LAN：局域网</p>
 <p>VLAN：虚拟局域网</p>
@@ -170,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl8i72qls00023ktveykz0xv2" data-title="Computer Internet" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl8i7fsts000254tv70zm27no" data-title="Computer Internet" class="article-share-link">分享</a>
       
       
       
