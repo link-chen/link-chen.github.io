@@ -14,7 +14,7 @@
 <meta property="og:description" content="C++各个基本变量的大小（64位）单位均位Byte    1Byte&#x3D;8bit int 4,float 4,long 4,double 8,char 1,short 2,bool 1 任意类型的指针8（指针存储的是一个地址，64位机的地址64bit&#x3D;8Byte） 引用和指针的区别引用是一个变量的别名不是实体故不能独立存在，在使用引用时必须初始化，而指针不需要初始化 exampl">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-07T14:56:23.000Z">
-<meta property="article:modified_time" content="2022-09-25T12:17:25.164Z">
+<meta property="article:modified_time" content="2022-09-25T14:38:04.444Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -223,14 +223,13 @@
 <p>例如</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> <span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="ifndef-x2F-define-x2F-endif的作用"><a href="#ifndef-x2F-define-x2F-endif的作用" class="headerlink" title="ifndef&#x2F;define&#x2F;endif的作用"></a>ifndef&#x2F;define&#x2F;endif的作用</h3><p>用于防止头文件被重复引用</p>
+<p>以上程序，在链接的时候，会用c的方式进行连接</p>
+<h3 id="ifndef-x2F-define-x2F-endif的作用"><a href="#ifndef-x2F-define-x2F-endif的作用" class="headerlink" title="ifndef&#x2F;define&#x2F;endif的作用"></a>ifndef&#x2F;define&#x2F;endif的作用</h3><p>ifndef&#x2F;endif用于防止头文件被重复引用</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8hb42nr0000yctv48c0dpbp" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8i72qll00003ktv4ikiczhc" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
