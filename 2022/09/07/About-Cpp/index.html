@@ -14,7 +14,7 @@
 <meta property="og:description" content="C++各个基本变量的大小（64位）单位均位Byte    1Byte&#x3D;8bit int 4,float 4,long 4,double 8,char 1,short 2,bool 1 任意类型的指针8（指针存储的是一个地址，64位机的地址64bit&#x3D;8Byte） 引用和指针的区别引用是一个变量的别名不是实体故不能独立存在，在使用引用时必须初始化，而指针不需要初始化 exampl">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-07T14:56:23.000Z">
-<meta property="article:modified_time" content="2022-09-25T14:38:04.444Z">
+<meta property="article:modified_time" content="2022-09-26T14:26:07.290Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -184,10 +184,10 @@
 <p>5.对于vector等用sizeof，得到一个元素的大小（64位机上vector<int> 应该是24）</int></p>
 <h3 id="i-与-i"><a href="#i-与-i" class="headerlink" title="i++与++i"></a>i++与++i</h3><p>i++是先取i，之后i+1</p>
 <p>++i是先i+1，之后取i</p>
-<h3 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h3><h5 id="c-内存区域"><a href="#c-内存区域" class="headerlink" title="c++内存区域"></a>c++内存区域</h5><p>堆(自由变量区源自于堆)</p>
-<p>栈</p>
-<p>常量</p>
-<p>全局&#x2F;静态区</p>
+<h3 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h3><h5 id="c-内存区域"><a href="#c-内存区域" class="headerlink" title="c++内存区域"></a>c++内存区域</h5><p>堆(自由变量区源自于堆)：动态申请内存的区域</p>
+<p>栈：局部变量的存放区域</p>
+<p>常量：常量</p>
+<p>全局&#x2F;静态区：全局变量和静态变量的存放区，一般的内置数据类型会被初始化为0（类里面的数据也同样初始化为0）</p>
 <h5 id="操作系统内存区域"><a href="#操作系统内存区域" class="headerlink" title="操作系统内存区域"></a>操作系统内存区域</h5><p>堆</p>
 <p>栈</p>
 <p>代码段</p>
@@ -229,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8i7woc400003wtvbm3wa5u8" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8iv5nop0000zwtv1aix5pfy" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       

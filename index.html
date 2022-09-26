@@ -100,11 +100,16 @@
 <p>给你一个整数数组 cardPoints 和整数 k，请你返回可以获得的最大点数。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxScore</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; cardPoints, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;num:cardPoints)</span><br><span class="line">            sum+=num;</span><br><span class="line">        <span class="type">int</span> len=cardPoints.<span class="built_in">size</span>()-k;</span><br><span class="line">        <span class="type">int</span> temp=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">            temp+=cardPoints[i];</span><br><span class="line">        <span class="type">int</span> res=temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=len;i&lt;cardPoints.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            temp=temp-cardPoints[i-len]+cardPoints[i];</span><br><span class="line">            res=<span class="built_in">min</span>(res,temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum-res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>下一个排列</p>
+<p>两个索引 i，j，用i寻找第一个非降序的连续序列，用j寻找第一个比i大的索引</p>
+<p>交换i,j的值，此后逆序排序i后面的所有值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">nextPermutation</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i=nums.<span class="built_in">size</span>()<span class="number">-2</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span>&amp;&amp;nums[i]&gt;=nums[i+<span class="number">1</span>])</span><br><span class="line">            i--;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="type">int</span> j=nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;=<span class="number">0</span>&amp;&amp;nums[i]&gt;=nums[j])&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">swap</span>(nums[i],nums[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>()+i+<span class="number">1</span>,nums.<span class="built_in">end</span>());<span class="comment">//将后面的值变小一点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8i7woce00093wtvhapv944j" data-title="leetcode" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8iv5np3000azwtvevjtfcme" data-title="leetcode" class="article-share-link">分享</a>
       
       
       
@@ -149,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8i7woce00083wtv45ztd0g3" data-title="Unreal Engine Material" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8iv5np00008zwtv8n1k1h3d" data-title="Unreal Engine Material" class="article-share-link">分享</a>
       
       
       
@@ -188,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8i7wocc00053wtv5egubhak" data-title="UE的那些事儿" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8iv5noy0005zwtvgv2icwad" data-title="UE的那些事儿" class="article-share-link">分享</a>
       
       
       
@@ -274,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8i7woca00033wtv7q700gcv" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8iv5noy0004zwtv0fnictyy" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -315,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8i7woch000c3wtv2xu5de0m" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8iv5np5000czwtv5p2j2tje" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -438,10 +443,10 @@
 <p>5.对于vector等用sizeof，得到一个元素的大小（64位机上vector<int> 应该是24）</int></p>
 <h3 id="i-与-i"><a href="#i-与-i" class="headerlink" title="i++与++i"></a>i++与++i</h3><p>i++是先取i，之后i+1</p>
 <p>++i是先i+1，之后取i</p>
-<h3 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h3><h5 id="c-内存区域"><a href="#c-内存区域" class="headerlink" title="c++内存区域"></a>c++内存区域</h5><p>堆(自由变量区源自于堆)</p>
-<p>栈</p>
-<p>常量</p>
-<p>全局&#x2F;静态区</p>
+<h3 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h3><h5 id="c-内存区域"><a href="#c-内存区域" class="headerlink" title="c++内存区域"></a>c++内存区域</h5><p>堆(自由变量区源自于堆)：动态申请内存的区域</p>
+<p>栈：局部变量的存放区域</p>
+<p>常量：常量</p>
+<p>全局&#x2F;静态区：全局变量和静态变量的存放区，一般的内置数据类型会被初始化为0（类里面的数据也同样初始化为0）</p>
 <h5 id="操作系统内存区域"><a href="#操作系统内存区域" class="headerlink" title="操作系统内存区域"></a>操作系统内存区域</h5><p>堆</p>
 <p>栈</p>
 <p>代码段</p>
@@ -483,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8i7woc400003wtvbm3wa5u8" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8iv5nop0000zwtv1aix5pfy" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -551,7 +556,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8i7wocd00073wtv9thib1v0" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8iv5np00007zwtv2fk268s3" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -637,7 +642,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8i7wocc00063wtvfuz5b6o2" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8iv5noz0006zwtv60y85wu3" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -777,7 +782,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8i7wocb00043wtv9tlk0hxn" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8iv5now0003zwtvcxs3h35l" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -819,7 +824,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8i7wocf000a3wtv53ri3e58" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8iv5np10009zwtvbqopb2bp" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
