@@ -109,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8lrb2tn00092stv5aljf77m" data-title="leetcode" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8sdc5yz000ahotv8ul679ny" data-title="leetcode" class="article-share-link">分享</a>
       
       
       
@@ -154,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8lrb2tm00082stvbdwfc96y" data-title="Unreal Engine Material" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8sdc5yx0008hotv4k0017bs" data-title="Unreal Engine Material" class="article-share-link">分享</a>
       
       
       
@@ -193,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8lrb2tj00052stv2h7h3sxr" data-title="UE的那些事儿" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8sdc5yw0005hotv0n5c7i5b" data-title="UE的那些事儿" class="article-share-link">分享</a>
       
       
       
@@ -279,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8lrb2ti00042stvfjf33s9g" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8sdc5yv0004hotveofhb7hl" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -320,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8lrb2tt000c2stv366ugcde" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8sdc5z0000bhotv4gjjdhwr" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -357,6 +357,10 @@
         <h3 id="C-各个基本变量的大小（64位）"><a href="#C-各个基本变量的大小（64位）" class="headerlink" title="C++各个基本变量的大小（64位）"></a>C++各个基本变量的大小（64位）</h3><p>单位均位Byte    1Byte&#x3D;8bit</p>
 <p>int 4,float 4,long 4,double 8,char 1,short 2,bool 1</p>
 <p>任意类型的指针8（指针存储的是一个地址，64位机的地址64bit&#x3D;8Byte）</p>
+<h3 id="一些基本数据类型的坑"><a href="#一些基本数据类型的坑" class="headerlink" title="一些基本数据类型的坑"></a>一些基本数据类型的坑</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x=0x1234;//十六进制的1234</span><br><span class="line">int x=010;实际上时8进制的10，也就是十进制的8</span><br><span class="line">int x=10;//十进制的10</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="引用和指针的区别"><a href="#引用和指针的区别" class="headerlink" title="引用和指针的区别"></a>引用和指针的区别</h3><p>引用是一个变量的别名不是实体故不能独立存在，在使用引用时必须初始化，而指针不需要初始化</p>
 <p>example</p>
 <p>int a&#x3D;0; int &amp;b&#x3D;a; (√)</p>
@@ -479,6 +483,7 @@
 <h3 id="extern-“C”的作用"><a href="#extern-“C”的作用" class="headerlink" title="extern “C”的作用"></a>extern “C”的作用</h3><p>extern int a;&#x2F;&#x2F;仅仅是声明了变量a，但没有为其分配内存区域</p>
 <p>extern “C” 表明其修饰的变量和函数，是按照C语言的方式编译和链接的</p>
 <p>使用extern ”C“ 用于实现C&#x2F;C++混合编程</p>
+<p>想在其他文件中使用全局变量，可以使用extern</p>
 <p>例如</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> <span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -486,11 +491,12 @@
 <h3 id="ifndef-x2F-define-x2F-endif的作用"><a href="#ifndef-x2F-define-x2F-endif的作用" class="headerlink" title="ifndef&#x2F;define&#x2F;endif的作用"></a>ifndef&#x2F;define&#x2F;endif的作用</h3><p>ifndef&#x2F;endif用于防止头文件被重复引用</p>
 <h3 id="关于-lt-gt-和“”"><a href="#关于-lt-gt-和“”" class="headerlink" title="关于&lt;&gt;和“”"></a>关于&lt;&gt;和“”</h3><p>&lt;&gt;在系统变量下面查找</p>
 <p>“”优先在自定义的文件下查找，其次在系统的下面查找</p>
+<p>#define 的宏展开，防止展开出错，可以用一些括号，防止展开出错</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8lrb2t600002stv7e1n9sac" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8sdc5yk0000hotvfs6m3pss" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -558,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8lrb2tl00072stv1gg91eqq" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8sdc5yx0007hotv8j9f9n3z" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -644,7 +650,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8lrb2tk00062stv108zbhye" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8sdc5yw0006hotv15nk6o7j" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -787,7 +793,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8lrb2tg00032stvhdaa5kio" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8sdc5yu0003hotvdnnag53l" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -829,7 +835,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8lrb2to000a2stv4zm9dc0y" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8sdc5yy0009hotv2c6nhn6c" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
