@@ -71,6 +71,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-关于数据库" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" class="article-date">
+  <time class="dt-published" datetime="2022-10-04T14:27:24.000Z" itemprop="datePublished">2022-10-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/">关于数据库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>注：仅记录数据库的SQL语句和数据库使用方法，不记录有关各种数据查询语言和数学上的概念</p>
+<p>创建表（学生表）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Student(Sno <span class="type">char</span>(<span class="number">9</span>) <span class="keyword">Primary</span> Key,Sname <span class="type">char</span>(<span class="number">20</span>) <span class="keyword">Unique</span>); </span><br></pre></td></tr></table></figure>
+
+<p>修改表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> [<span class="keyword">add</span> name type 约束]<span class="operator">|</span>[<span class="keyword">drop</span> name]</span><br></pre></td></tr></table></figure>
+
+<p>删除表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> TableName;</span><br></pre></td></tr></table></figure>
+
+<p>查找表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> [<span class="operator">*</span>]<span class="operator">|</span>属性 <span class="keyword">from</span> TableName;</span><br></pre></td></tr></table></figure>
+
+<p>查找表有限制条件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> [<span class="operator">*</span>]<span class="operator">|</span>属性 <span class="keyword">from</span> TableName <span class="keyword">where</span><span class="operator">+</span>条件;</span><br></pre></td></tr></table></figure>
+
+<p>模糊匹配</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>template</span><br><span class="line"><span class="keyword">select</span> [<span class="operator">*</span>]<span class="operator">|</span>属性 <span class="keyword">from</span> TableName <span class="keyword">where</span><span class="operator">+</span>条件 <span class="keyword">like</span> <span class="string">&#x27;x%xxx&#x27;</span>;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>例子查找姓名有欧阳的学生</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Student <span class="keyword">where</span> Sname <span class="keyword">like</span> <span class="string">&#x27;欧阳%&#x27;</span>;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>查找姓名有欧阳（前两个字）的，总共名字长为<span class="number">3</span>的学生</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Student <span class="keyword">where</span> Sname <span class="keyword">like</span> <span class="string">&#x27;欧阳_&#x27;</span>;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>查找名字第二个字为阳的学生</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Student <span class="keyword">where</span> Sname <span class="keyword">like</span> <span class="string">&#x27;_阳%&#x27;</span>;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>还有<span class="keyword">not</span> <span class="keyword">like</span> 可以使用</span><br></pre></td></tr></table></figure>
+
+<p>Order By</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select [*]|from TableName where+条件+Order By+属性;</span><br></pre></td></tr></table></figure>
+
+<p>连接操作</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="cl8ubgpan000bo0tv84f6c4va" data-title="关于数据库" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-leetcode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/24/leetcode/" class="article-date">
@@ -109,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8tqgi2r000a80tvhuzbb5tx" data-title="leetcode" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8ubgpaj000ao0tvbbzd1203" data-title="leetcode" class="article-share-link">分享</a>
       
       
       
@@ -154,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8tqgi2q000980tvcyc08nro" data-title="Unreal Engine Material" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8ubgpag0008o0tvb24hdpc8" data-title="Unreal Engine Material" class="article-share-link">分享</a>
       
       
       
@@ -193,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8tqgi2m000580tvcr8ifr93" data-title="UE的那些事儿" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8ubgpad0005o0tv43qhgp9y" data-title="UE的那些事儿" class="article-share-link">分享</a>
       
       
       
@@ -279,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8tqgi2j000380tvcjxe9ohv" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8ubgpac0004o0tvb25m6q0c" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -320,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8tqgi2u000c80tv2wdt13xf" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8ubgpap000do0tv63cpdw17" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -496,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8tqgi28000080tv1n6o3y2g" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8ubgp9v0000o0tv9lphg7fj" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -564,7 +625,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8tqgi2n000680tv7onp92eb" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8ubgpaf0007o0tv4gkffswl" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -650,7 +711,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8tqgi2o000780tv39a36pn3" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8ubgpae0006o0tv9yyr8ao0" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -793,49 +854,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8tqgi2l000480tve19lb3ru" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo-博客操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" class="article-date">
-  <time class="dt-published" datetime="2022-09-04T15:55:01.000Z" itemprop="datePublished">2022-09-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/">hexo 博客操作</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>hexo n “xx” 创建一个名为xx的博客</p>
-<p>hexo clean 清空原有的博客，为更新做准备</p>
-<p>hexo g 初始化，我们在new一个博客后，进行了编辑，之后执行clean操作，最后再执行g操作，便可以得到更新后的博客</p>
-<p>hexo d 进行博客的部署</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8tqgi2p000880tveq1i406t" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8ubgpab0003o0tv34mncsyc" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
@@ -870,7 +889,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li></ul>
     </div>
   </div>
 
@@ -881,6 +900,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/">关于数据库</a>
+          </li>
         
           <li>
             <a href="/2022/09/24/leetcode/">leetcode</a>
@@ -896,10 +919,6 @@
         
           <li>
             <a href="/2022/09/20/OS/">OS</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/">我永远喜欢宵宫</a>
           </li>
         
       </ul>
