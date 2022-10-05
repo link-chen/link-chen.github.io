@@ -16,7 +16,7 @@
 <meta property="og:image" content="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080550277.png">
 <meta property="og:image" content="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080711634.png">
 <meta property="article:published_time" content="2022-10-04T14:27:24.000Z">
-<meta property="article:modified_time" content="2022-10-05T01:00:00.092Z">
+<meta property="article:modified_time" content="2022-10-05T01:21:06.361Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080550277.png">
@@ -122,7 +122,7 @@
 
 <p>连接操作：从几个表里面一起查找</p>
 <p>内连接inner join</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 inner join table2 on 属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 inner join table2 on 属性;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080550277.png"></p>
 <p>左连接left join</p>
@@ -130,14 +130,26 @@
 
 <p><img src="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080711634.png"></p>
 <p>右连接right join</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 right join table2 on 属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 right join table2 on 属性;</span><br></pre></td></tr></table></figure>
 
 <p>全连接（mysql不支持），本质上就是求全集，就不细讲了</p>
+<p>嵌套查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from where (select xx from xx where 条件);</span><br></pre></td></tr></table></figure>
+
+<p>exist（exist不返回数据，仅查询是否存在）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *|属性 from tablename where exist(子查询语句);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>视图（一个虚表）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> ViewName <span class="keyword">as</span> 查询语句</span><br></pre></td></tr></table></figure>
+
+<p>视图的更新操作和普通表无区别</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="cl8uxbhxf000b5wtv6o0yb8vt" data-title="关于数据库" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="cl8uy1umm000bvktv7jyq24vj" data-title="关于数据库" class="article-share-link">分享</a>
       
       
       

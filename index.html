@@ -117,7 +117,7 @@
 
 <p>连接操作：从几个表里面一起查找</p>
 <p>内连接inner join</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 inner join table2 on 属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 inner join table2 on 属性;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080550277.png"></p>
 <p>左连接left join</p>
@@ -125,14 +125,26 @@
 
 <p><img src="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080711634.png"></p>
 <p>右连接right join</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 right join table2 on 属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 right join table2 on 属性;</span><br></pre></td></tr></table></figure>
 
 <p>全连接（mysql不支持），本质上就是求全集，就不细讲了</p>
+<p>嵌套查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from where (select xx from xx where 条件);</span><br></pre></td></tr></table></figure>
+
+<p>exist（exist不返回数据，仅查询是否存在）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *|属性 from tablename where exist(子查询语句);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>视图（一个虚表）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> ViewName <span class="keyword">as</span> 查询语句</span><br></pre></td></tr></table></figure>
+
+<p>视图的更新操作和普通表无区别</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="cl8uxbhxf000b5wtv6o0yb8vt" data-title="关于数据库" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="cl8uy1umm000bvktv7jyq24vj" data-title="关于数据库" class="article-share-link">分享</a>
       
       
       
@@ -182,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8uxbhxd000a5wtv8ll4bu0x" data-title="leetcode" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8uy1umk000avktv0fi07df5" data-title="leetcode" class="article-share-link">分享</a>
       
       
       
@@ -227,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8uxbhxa00075wtv9p8775c3" data-title="Unreal Engine Material" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8uy1umi0008vktv4p4xa5w0" data-title="Unreal Engine Material" class="article-share-link">分享</a>
       
       
       
@@ -266,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8uxbhx500035wtv5vgsholh" data-title="UE的那些事儿" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8uy1umf0005vktvby8bhljb" data-title="UE的那些事儿" class="article-share-link">分享</a>
       
       
       
@@ -352,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8uxbhx400025wtvgkow82zm" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8uy1ume0004vktvaszu18e8" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -393,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8uxbhxh000d5wtv843u7v96" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8uy1umo000dvktva4ek0zmx" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -569,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8uxbhwt00005wtvgwi099mr" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8uy1ulw0000vktv14qtdb75" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -637,7 +649,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8uxbhxb00085wtv7tn65cke" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8uy1umh0007vktvfenwget4" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -723,7 +735,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8uxbhx900065wtv2xq91puo" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8uy1umg0006vktv1d86dq1w" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -866,7 +878,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8uxbhx800055wtveqgvbaj5" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8uy1umc0003vktvb5hxacms" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
