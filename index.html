@@ -115,12 +115,24 @@
 <p>Order By</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select [*]|from TableName where+条件+Order By+属性;</span><br></pre></td></tr></table></figure>
 
-<p>连接操作</p>
+<p>连接操作：从几个表里面一起查找</p>
+<p>内连接inner join</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 inner join table2 on 属性</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080550277.png"></p>
+<p>左连接left join</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 left join table2 on 属性</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/20200121080711634.png"></p>
+<p>右连接right join</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from table1 right join table2 on 属性</span><br></pre></td></tr></table></figure>
+
+<p>全连接（mysql不支持），本质上就是求全集，就不细讲了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="cl8ubgpan000bo0tv84f6c4va" data-title="关于数据库" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="cl8uxbhxf000b5wtv6o0yb8vt" data-title="关于数据库" class="article-share-link">分享</a>
       
       
       
@@ -170,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8ubgpaj000ao0tvbbzd1203" data-title="leetcode" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/24/leetcode/" data-id="cl8uxbhxd000a5wtv8ll4bu0x" data-title="leetcode" class="article-share-link">分享</a>
       
       
       
@@ -215,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8ubgpag0008o0tvb24hdpc8" data-title="Unreal Engine Material" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/23/Unreal-Engine-Material/" data-id="cl8uxbhxa00075wtv9p8775c3" data-title="Unreal Engine Material" class="article-share-link">分享</a>
       
       
       
@@ -254,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8ubgpad0005o0tv43qhgp9y" data-title="UE的那些事儿" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="cl8uxbhx500035wtv5vgsholh" data-title="UE的那些事儿" class="article-share-link">分享</a>
       
       
       
@@ -340,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8ubgpac0004o0tvb25m6q0c" data-title="OS" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/20/OS/" data-id="cl8uxbhx400025wtvgkow82zm" data-title="OS" class="article-share-link">分享</a>
       
       
       
@@ -381,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8ubgpap000do0tv63cpdw17" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/12/%E6%88%91%E6%B0%B8%E8%BF%9C%E5%96%9C%E6%AC%A2%E5%AE%B5%E5%AE%AB/" data-id="cl8uxbhxh000d5wtv843u7v96" data-title="我永远喜欢宵宫" class="article-share-link">分享</a>
       
       
       
@@ -557,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8ubgp9v0000o0tv9lphg7fj" data-title="About Cpp" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/07/About-Cpp/" data-id="cl8uxbhwt00005wtvgwi099mr" data-title="About Cpp" class="article-share-link">分享</a>
       
       
       
@@ -625,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8ubgpaf0007o0tv4gkffswl" data-title="UnityShader Practice" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Practice/" data-id="cl8uxbhxb00085wtv7tn65cke" data-title="UnityShader Practice" class="article-share-link">分享</a>
       
       
       
@@ -711,7 +723,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8ubgpae0006o0tv9yyr8ao0" data-title="UnityShader Note" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/05/UnityShader-Note/" data-id="cl8uxbhx900065wtv2xq91puo" data-title="UnityShader Note" class="article-share-link">分享</a>
       
       
       
@@ -854,7 +866,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8ubgpab0003o0tv34mncsyc" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl8uxbhx800055wtveqgvbaj5" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
       
       
       
