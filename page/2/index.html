@@ -71,6 +71,149 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-DataStruct-And-Algorithm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/04/DataStruct-And-Algorithm/" class="article-date">
+  <time class="dt-published" datetime="2022-09-04T15:55:37.000Z" itemprop="datePublished">2022-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/04/DataStruct-And-Algorithm/">DataStruct And Algorithm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序原理：选取一个pivote，作为标杆，将小于该数的数放在pivote前，大于该数的放在pivote后面</p>
+<p>不断划分两个区间，左侧为小于该数的，右侧为大于该数的</p>
+<p>直到左右两个区间不再存在时，此时数组已经有序</p>
+<p>时间复杂度O(nlogn)~O(n^2)，是不稳定排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//输入的r应该是nums.size()-1</span><br><span class="line">void QuickSort(vector&lt;int&gt;&amp; nums,int l,int r)&#123;</span><br><span class="line">	if(l&gt;=r)</span><br><span class="line">		return;</span><br><span class="line">	int i=l-1,j=r+1;</span><br><span class="line">	int x=nums[(l+r)/2];</span><br><span class="line">	while(i&lt;j)&#123;</span><br><span class="line">		do i++;while(nums[i]&lt;x);</span><br><span class="line">		do j--;while(nums[j]&gt;x);</span><br><span class="line">		if(i&lt;j)</span><br><span class="line">			swap(nums[i],nums[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	QuickSort(nums,l,j);</span><br><span class="line">	QuickSort(nums,j+1,r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>时间复杂度O(nlogn)，空间复杂度O(Ologn)</p>
+<p>是否稳定（√）</p>
+<p>非递归的归并排序模板</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void mergesort1(vector&lt;int&gt; &amp;num)</span><br><span class="line">&#123;</span><br><span class="line">	if(num.size()&lt;2)</span><br><span class="line">	return;</span><br><span class="line">	int N=num.size();</span><br><span class="line">	int megersize=1;</span><br><span class="line">	while(megersize&lt;N)</span><br><span class="line">	&#123;</span><br><span class="line">		int L=0;</span><br><span class="line">		while(L&lt;N)</span><br><span class="line">		&#123;</span><br><span class="line">			int M=L+megersize-1;</span><br><span class="line">			if(M&gt;N)</span><br><span class="line">			break;</span><br><span class="line">			int r=min(M+megersize,N-1);</span><br><span class="line">			merge(num,L,M,r);</span><br><span class="line">			L=r+1;</span><br><span class="line">		&#125;</span><br><span class="line">		if(megersize&gt;N/2)</span><br><span class="line">		break;</span><br><span class="line">		megersize&lt;&lt;=1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>依靠递归的归并排序模板</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">void merge(vector&lt;int&gt; &amp;num,int l,int mid,int r)</span><br><span class="line">&#123;	</span><br><span class="line">	vector&lt;int&gt; help(r-l+1);</span><br><span class="line">	int i=0;</span><br><span class="line">	int p1=l;</span><br><span class="line">	int p2=mid+1;</span><br><span class="line">	while(p1&lt;=mid&amp;&amp;p2&lt;=r)</span><br><span class="line">	&#123;</span><br><span class="line">		help[i++]=num[p1]&lt;=num[p2]?num[p1++]:num[p2++];</span><br><span class="line">	&#125;</span><br><span class="line">	while(p1&lt;=mid)</span><br><span class="line">	&#123;</span><br><span class="line">		help[i++]=num[p1++];</span><br><span class="line">	&#125;</span><br><span class="line">	while(p2&lt;=r)</span><br><span class="line">	&#123;</span><br><span class="line">		help[i++]=num[p2++];</span><br><span class="line">	&#125;</span><br><span class="line">	for(int j=0;j&lt;help.size();j++)</span><br><span class="line">	&#123;</span><br><span class="line">		num[l+j]=help[j];</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">void process(vector&lt;int&gt; &amp;num,int l,int r)</span><br><span class="line">&#123;</span><br><span class="line">	if(l==r)</span><br><span class="line">	return;</span><br><span class="line">	int mid=l+((r-l)/2);</span><br><span class="line">	process(num,l,mid);</span><br><span class="line">	process(num,mid+1,r);</span><br><span class="line">	merge(num,l,mid,r);</span><br><span class="line">&#125;</span><br><span class="line">void mergesort(vector&lt;int&gt; &amp;num)</span><br><span class="line">&#123;</span><br><span class="line">	if(num.size()&lt;2)</span><br><span class="line">	return;</span><br><span class="line">	process(num,0,num.size()-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例题：leetcode排序链表148</p>
+<p>使用冒泡排序O(n^2)会超时，应为链表无法随机访问，无法使用快速排序</p>
+<p>考虑使用归并排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">void MergeList(ListNode* head,ListNode* tail)&#123;</span><br><span class="line">	if(!head)</span><br><span class="line">		return head;</span><br><span class="line">	if(head-&gt;next==tail)&#123;</span><br><span class="line">		hede-&gt;next=nullptr;</span><br><span class="line">		return head;</span><br><span class="line">	&#125;</span><br><span class="line">	ListNode *slow=head,*falst=head;</span><br><span class="line">	while(fast!=tail)&#123;</span><br><span class="line">		slow=slow-&gt;next;</span><br><span class="line">		fast=fast-&gt;next;</span><br><span class="line">		if(fast!=tail)</span><br><span class="line">			fast=fast-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	ListNode* mid=slow;</span><br><span class="line">	//merge使用的是合并有序链表的模板，见leetcode第21题</span><br><span class="line">	return merge(MergeList(head,mid),MergeList(mid,tail));</span><br><span class="line">&#125;</span><br><span class="line">ListNode* SortList(ListNode* head)&#123;</span><br><span class="line">	return MergeList(head,nullptr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>归并排序的应用场景：大规模数据的排序问题：</p>
+<p>可以先对数据进行划分，制成一部分一部分有序的数据</p>
+<p>之后进行合并即可</p>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>堆是一个数组，但可以用完全二叉树表示</p>
+<p>大根堆：父节点索引为i，2<em>i和2</em>i+1的值均小于i的值</p>
+<p>小根堆：父节点索引为i，2<em>i和2</em>i+1的值均大于i的值</p>
+<p>[9,8,7,6,5,4,3,2,1] 大根堆</p>
+<p>[1,2,3,4,5,6,7,8,9] 小根堆</p>
+<p>c++自带的堆结构-&gt; priority_queue</p>
+<p>自定义的比较器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">auto compare=[](int a,int b)&#123;</span><br><span class="line">	return a&lt;b;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;int,vector&lt;int&gt;,decltype(compare)&gt; queue(compare);</span><br></pre></td></tr></table></figure>
+
+<p>引用：移动不超过n次使数组有序（即基本有序数组排序）</p>
+<p>使用一个堆，从数组头部开始放入n个数</p>
+<p>此后依次取出堆头元素放入新数组，并将后面数组的元素放入堆中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; Sort(vector&lt;int&gt;&amp;nums,int n)&#123;</span><br><span class="line">	priority_queue&lt;int,vector&lt;int&gt;,decltype(compare)&gt; queue(compare);</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">		queue.push(nums[i]);</span><br><span class="line">	vector&lt;int&gt; res;</span><br><span class="line">	for(int i=n;i&lt;nums.size();i++)&#123;</span><br><span class="line">		res.push(queue.top());</span><br><span class="line">		queue.pop();</span><br><span class="line">		queue.push(nums[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	while(!queue.empty())&#123;</span><br><span class="line">		res.push(queue.top());</span><br><span class="line">		queue.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>非基于选择的排序，可以突破基于比较的O(nlogn)</p>
+<p>1.为什么基于比较的排序会使排序效率的极限为O(nlogn)?</p>
+<p>​	二叉搜索树的平均查找次数为logn，每个元素查找logn次，总共n个元素，得nlogn</p>
+<h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><p>二分查找不一定要求有序，只要能有二义性（能够划分为两类即可）</p>
+<p>查找的时间复杂度O(logn)</p>
+<p>一些常见的写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//普通的二分查找</span><br><span class="line">//[l,r] 区间</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;=r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]==target)</span><br><span class="line">			return nums[mid];</span><br><span class="line">		if(nums[mid]&gt;target)</span><br><span class="line">			r=mid-1;</span><br><span class="line">		if(nums[mid]&lt;target)</span><br><span class="line">			l=mid+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//[l,r) 区间</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]==target)</span><br><span class="line">			return nums[mid];</span><br><span class="line">		if(nums[mid]&gt;target)</span><br><span class="line">			r=mid;</span><br><span class="line">		if(nums[mid]&lt;target)</span><br><span class="line">			l=mid+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">查找有序序列中最右侧的target</span><br><span class="line">[1,2,3,3,4,5,6,6,6,6,7,8,9,9] 应该return 9</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int res=-1,l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]&lt;=target)&#123;</span><br><span class="line">			l=mid;</span><br><span class="line">			res=mid;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			r=mid-1;</span><br><span class="line">	&#125;</span><br><span class="line">	return nums[res]==target?res:-1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查找最左侧的target</span><br><span class="line">int binarySearch(vector&lt;int&gt;&amp;nums,int target)&#123;</span><br><span class="line">	int res=-1,l=0,r=nums.size()-1;</span><br><span class="line">	while(l&lt;r)&#123;</span><br><span class="line">		int mid=l+(r-l)/2;</span><br><span class="line">		if(nums[mid]&gt;=target)&#123;</span><br><span class="line">			r=mid;</span><br><span class="line">			res=mid;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			l=mid+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return nums[res]==target?res:-1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>非有序序列的二分查找：局部最小值</p>
+<p>建议联想高数的极值问题</p>
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>用空间换取时间</p>
+<p>1.一维前缀和</p>
+<p>使用一组数组存放前面所有数的和，此后常数时间获取前n个数的和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//n个数的前缀和，我们用n+1个数据的数组记录，用于简化一些边界判定的问题</span><br><span class="line">//[l,r]之间的数的和，可以用arr[r]-arr[l-1]快速求得</span><br><span class="line">vector&lt;int&gt;&amp; PreSum(vector&lt;int&gt;&amp; nums)&#123;</span><br><span class="line">	vector&lt;int&gt; arr;</span><br><span class="line">	arr.push_back(nums.size()+1,0);</span><br><span class="line">	for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">		arr[i+1]=arr[i]+nums[i];</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.二维前缀和</p>
+<p>与一维前缀和相同，我们在每一个方向上，多记录一个初始值，简化边界判定</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; <span class="built_in">PreSumTwo</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; nums)&#123;</span><br><span class="line">	vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">preSum</span>(nums.<span class="built_in">size</span>()+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums[<span class="number">0</span>].<span class="built_in">size</span>()+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> preSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>构建一个数组，使其和为某一个数，即与前缀和相反</p>
+<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>在图的算法中很有用</p>
+<p>每个节点初始阶段，其顶层节点均为自身，依靠节点是否拥有共同的顶层节点排定是否在同一个集合内</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class DisjoinSet&#123;</span><br><span class="line">	private:</span><br><span class="line">		unordered_map&lt;int,in&gt; disjoinset;</span><br><span class="line">	public:</span><br><span class="line">		void Init(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">			for(int &amp;num:arr)&#123;</span><br><span class="line">				disjoinset[num]=num;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		void Add(int num)&#123;</span><br><span class="line">			disjoinset[num]=num;</span><br><span class="line">		&#125;</span><br><span class="line">		bool FindTheSame(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return true;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		void Merge(int a,int b)&#123;</span><br><span class="line">			if(disjoinset[a]==disjoinset[b])</span><br><span class="line">				return;</span><br><span class="line">			disjoinset[b]=disjoinset[a];//b挂在a的顶层节点下</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在连通域问题，如岛屿数量，岛屿面积等问题上有奇效</p>
+<h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><p>tips:按位与只会的到小于或等于该数的数，即按位与的值是严格递减的</p>
+<ol>
+<li><p>int a,int b;不能使用第三个变量交换a，b</p>
+<p>方法1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=a+b;</span><br><span class="line">b=a-b;</span><br><span class="line">a=a-b;</span><br></pre></td></tr></table></figure>
+
+<p>方法2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=a*b;</span><br><span class="line">b=a/b;</span><br><span class="line">a=a/b;</span><br></pre></td></tr></table></figure>
+
+<p>方法3</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=a^b;</span><br><span class="line">b=a^b;</span><br><span class="line">a=a^b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二进制中1的个数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int findoneInbinary(int x)&#123;</span><br><span class="line">	int res=0;</span><br><span class="line">	uint_t t=x;</span><br><span class="line">	while(t)&#123;</span><br><span class="line">		if(t&amp;1)</span><br><span class="line">			res++;</span><br><span class="line">		t=t&gt;&gt;1;</span><br><span class="line">	&#125;</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除int的最右侧的1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int x;</span><br><span class="line">x=x&amp;(x-1);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提取最右侧的1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void findOne(int num)&#123;</span><br><span class="line">	int rightone=num&amp;(~num+1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组中只有一个数出现奇数次，其他数出现偶数次，求这个数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int findNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int res=arr[0];</span><br><span class="line">	for(int i=1;i&lt;arr.size();i++)</span><br><span class="line">		res^=arr[i];</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组中有两个数出现了奇数次，其他数均出现偶数次，求这两个数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//1哈希表</span><br><span class="line">//位运算技巧</span><br><span class="line">pair&lt;int,int&gt; findTwoNumberOnlyOnce(vector&lt;int&gt;&amp; arr)&#123;</span><br><span class="line">	int eor=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		eor^=arr[i];</span><br><span class="line">	int rightone=eor&amp;(~eor+1);</span><br><span class="line">	int onlyone=0;</span><br><span class="line">	for(int i=0;i&lt;arr.size();i++)</span><br><span class="line">		if(arr[i]&amp;rightone)</span><br><span class="line">			onlyone^=arr[i];</span><br><span class="line">	return pair&lt;int,int&gt;(onlyone,eor^onlyone0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="双指针技巧"><a href="#双指针技巧" class="headerlink" title="双指针技巧"></a>双指针技巧</h3><p>诸如二分查找，归并排序，快速排序等算法，广义上也是双指针的一种</p>
+<p>1.快慢指针</p>
+<p>​	删除链表的倒数第n个结点等应用</p>
+<p>2.对撞指针</p>
+<p>​	二分查找本质上也是一种对撞指针</p>
+<p>3.滑动窗口</p>
+<p>​	连续1,0问题</p>
+<p>​	最大困扰度问题</p>
+<p>​	无重复子串问题等</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/04/DataStruct-And-Algorithm/" data-id="cl913boi60002x8tva8r2g8dk" data-title="DataStruct And Algorithm" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hexo-博客操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" class="article-date">
@@ -101,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl8uz8dl10009fstvfhrogsoo" data-title="hexo 博客操作" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/hexo-%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/" data-id="cl913boih000bx8tvfowc6bgd" data-title="hexo 博客操作" class="article-share-link">分享</a>
       
       
       
@@ -229,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl8uz8dkt0002fstv65lzb9ei" data-title="Computer Internet" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Internet/" data-id="cl913boi80004x8tv63xvhpwh" data-title="Computer Internet" class="article-share-link">分享</a>
       
       
       
@@ -315,7 +458,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl8uz8dkq0001fstv4j70a5fy" data-title="Computer Graphics" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/Computer-Graphics/" data-id="cl913boi30001x8tv37rf4w7k" data-title="Computer Graphics" class="article-share-link">分享</a>
       
       
       
@@ -354,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl8uz8dl5000cfstv3e0qbl5c" data-title="去码头整点薯条" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/09/04/%E5%8E%BB%E7%A0%81%E5%A4%B4%E6%95%B4%E7%82%B9%E8%96%AF%E6%9D%A1/" data-id="cl913boij000dx8tv3g8u6zdk" data-title="去码头整点薯条" class="article-share-link">分享</a>
       
       
       
@@ -402,6 +545,10 @@
       <ul>
         
           <li>
+            <a href="/2022/10/05/Internet-Program/">Internet Program</a>
+          </li>
+        
+          <li>
             <a href="/2022/10/04/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/">关于数据库</a>
           </li>
         
@@ -415,10 +562,6 @@
         
           <li>
             <a href="/2022/09/20/UE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">UE的那些事儿</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/20/OS/">OS</a>
           </li>
         
       </ul>
